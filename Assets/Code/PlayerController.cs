@@ -3,8 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
     const float REST_THRESHOLD = 0.25f;
-    const float VELOCITY_DECAY = 0.90f;
-
+    public float VELOCITY_DECAY = 0.90f;
     public Sprite[] RestSprites;
     public Sprite[] RestingWithItemSprites;
     
