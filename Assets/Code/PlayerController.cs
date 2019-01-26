@@ -17,9 +17,13 @@ public class PlayerController : MonoBehaviour {
 
     BookController mBook;
     MementoController mMemento;
+    private CharacterController mCharController;
 
+    void Awake() {
+         mCharController = GetComponent<CharacterController>();
+    }
     void Update() {
-        transform.position += mVelocity * Time.deltaTime;
+        mCharController.Move(mVelocity * Time.deltaTime);
         if (mCurrentlyHeldObject != null) {
             mCurrentlyHeldObject.transform.position = transform.position + (mFacingDirection * HeldObjectOffset);
         }
@@ -76,9 +80,6 @@ public class PlayerController : MonoBehaviour {
                 break;
             }
         }
-        // if (other.gameObject.Tag.equals("Wall")) {
-        //     if (Mathf.Abs(other.gameObject.transform.position.x - transform.position.x) < TRIGGER_THRESHOLD
-        // }
     }
 
     public void OnTriggerExit(Collider other) {
