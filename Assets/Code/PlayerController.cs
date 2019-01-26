@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    const float VELOCITY_DECAY = 0.9f;
+    public float VELOCITY_DECAY = 0.5f;
 
     public int PlayerId;
     public float MovementSpeed = 5;
