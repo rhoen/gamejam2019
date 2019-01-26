@@ -13,16 +13,18 @@ public class DemonController : MonoBehaviour
 
 
     GameObject closestEnemy;
-    float closestDistance = 100f;
     float characterDistance;
 
     float x;
     float y;
 
-    float speed1 = .03f;
-    float speed2 = .01f;
+    public float towardsPlayerSpeed = .03f;
+    public float awayFromEnemiesSpeed = .01f;
 
-    float timer = 0f;
+    public float seekPlayerJitterFactor = 2;
+    public float nextPlayerSeekInterval = 2f;
+    float elapsedTimeTillnextPlayerSeek = 100;
+    
     Vector3 newPosition;
 
     public string player1;
@@ -43,7 +45,7 @@ public class DemonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        elapsedTimeTillnextPlayerSeek += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (chaseCharacter == character1)
@@ -68,13 +70,13 @@ public class DemonController : MonoBehaviour
 
         if (characterDistance > 4)
         {
-            speed1 = 0.05f;
+            towardsPlayerSpeed = 0.05f;
         }
         else
         {
-            speed1 = 0.03f;
+            towardsPlayerSpeed = 0.03f;
         }
-        transform.position = Vector3.MoveTowards(transform.position, chaseCharacter.transform.position, speed1);
+        transform.position = Vector3.MoveTowards(transform.position, chaseCharacter.transform.position, towardsPlayerSpeed);
     }
 
 
@@ -82,23 +84,23 @@ public class DemonController : MonoBehaviour
     {
 
         Vector3 characterPosition = chaseCharacter.transform.position;
-        if (timer > 1f)
+        if (elapsedTimeTillnextPlayerSeek > nextPlayerSeekInterval)
         {
-            Vector2 randV2 = Random.insideUnitCircle;
+            Vector2 radiusDisplacement = Random.insideUnitCircle;
 
-            newPosition = new Vector3(characterPosition.x + randV2.x * 2, characterPosition.y + randV2.y * 2, transform.position.z);
+            newPosition = new Vector3(characterPosition.x + radiusDisplacement.x * seekPlayerJitterFactor, characterPosition.y + radiusDisplacement.y * seekPlayerJitterFactor, transform.position.z);
 
-            timer = 0f;
+            elapsedTimeTillnextPlayerSeek = 0f;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, newPosition, 0.03f);
+        transform.position = Vector3.MoveTowards(transform.position, newPosition, towardsPlayerSpeed);
     }
 
 
 
     void MoveAwayFromEnemies()
     {
-        closestDistance = 100f;
+        float closestDistance = Mathf.Infinity;
         foreach (GameObject enemy in enemies)
         {
             if (Vector3.Distance(transform.position, enemy.transform.position) < closestDistance && Vector3.Distance(transform.position, enemy.transform.position) != 0f)
@@ -107,7 +109,10 @@ public class DemonController : MonoBehaviour
                 closestEnemy = enemy;
             }
         }
-        transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, -1 * speed2);
+        if (closestEnemy == null) {
+            return;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, -1 * awayFromEnemiesSpeed);
     }
 
 }
