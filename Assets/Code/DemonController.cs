@@ -19,18 +19,21 @@ public class DemonController : MonoBehaviour
     float x;
     float y;
 
-    public float speed1 = .03f;
-    public float speed2 = .01f;
+    float speed1 = .03f;
+    float speed2 = .01f;
 
     float timer = 0f;
     Vector3 newPosition;
+
+    public string player1;
+    public string player2;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        character1 = GameObject.Find("character1");
-        character2 = GameObject.Find("character2");
+        character1 = GameObject.Find(player1);
+        character2 = GameObject.Find(player2);
 
         chaseCharacter = character1;
 
