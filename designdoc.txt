@@ -4,3 +4,11 @@ Untitled 2 Player Co-op Demon Summoning Game
 
 Randomly generated rich person's spooky house with one special, bigger, demon-summoning room
 Each player can move around the house freely, top down view
+
+The players' goal is to summon a demon to destroy the house
+To do this, they need to locate key items within the house and bring them to the summoning room
+Once they've collected all the items, they must both be in the room to complete the ritual and win
+
+Impeding the players are little demons which are out to kill them
+One of the players must always be carrying THE BOOK which attracts all the demons
+If the book or either player is touched by a demon, the players LOSE
