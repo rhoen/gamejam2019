@@ -2,9 +2,19 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
+    const float REST_THRESHOLD = 0.25f;
+    const float VELOCITY_DECAY = 0.90f;
 
-    const float VELOCITY_DECAY = 0.9f;
+    public Sprite[] RestSprites;
+    public Sprite[] RestingWithItemSprites;
+    
+    public Sprite[] MoveSprites;
+    public Sprite[] MovingWithItemSprites;
+    public float MoveFramerate = 5;
 
+    public float RestFramerate = 3;
+
+    float mFrameCounter;
     public int PlayerId;
     public float MovementSpeed = 5;
 
@@ -19,13 +29,61 @@ public class PlayerController : MonoBehaviour {
     MementoController mMemento;
     private CharacterController mCharController;
 
+    private State mCurrentState;
+
+    public enum State
+    {
+        Resting,
+        RestingWithItem,
+        Moving,
+        MovingWithItem
+    }
+
     void Awake() {
          mCharController = GetComponent<CharacterController>();
     }
     void Update() {
+        if (mVelocity.magnitude < REST_THRESHOLD)
+        {
+            if (mCurrentlyHeldObject != null) {
+                TransitionState(State.RestingWithItem);
+            }
+            TransitionState(State.Resting);
+        }
+
         mCharController.Move(mVelocity * Time.deltaTime);
         if (mCurrentlyHeldObject != null) {
             mCurrentlyHeldObject.transform.position = transform.position + (mFacingDirection * HeldObjectOffset);
+        }
+
+        Sprite[] spriteArray = null;
+        switch (mCurrentState)
+        {
+            case State.MovingWithItem:
+                spriteArray = MovingWithItemSprites;
+                mFrameCounter += MoveFramerate * (mVelocity.magnitude / MovementSpeed) * Time.deltaTime;
+                break;
+
+            case State.Moving:
+                spriteArray = MoveSprites;
+                mFrameCounter += MoveFramerate * (mVelocity.magnitude / MovementSpeed) * Time.deltaTime;
+                break;
+
+            case State.RestingWithItem:
+                spriteArray = RestingWithItemSprites;
+                mFrameCounter += RestFramerate * Time.deltaTime;
+                break;
+
+            case State.Resting:
+                spriteArray = RestSprites;
+                mFrameCounter += RestFramerate * Time.deltaTime;
+                break;
+        }
+        
+        if (spriteArray != null && spriteArray.Length > 0)
+        {
+            int frame = ((int)mFrameCounter) % spriteArray.Length;
+            GetComponent<SpriteRenderer>().sprite = spriteArray[frame];
         }
     }
 
@@ -42,7 +100,13 @@ public class PlayerController : MonoBehaviour {
             } else {
                 mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
             }
+            if (mCurrentlyHeldObject != null) {
+                TransitionState(State.MovingWithItem);
+            } else {
+                TransitionState(State.Moving);
+            }
         }
+        GetComponent<SpriteRenderer>().flipX = mFacingDirection != Vector3.right;
     }
 
     public void OnAButton() {
@@ -92,5 +156,9 @@ public class PlayerController : MonoBehaviour {
                 break;
             }
         }
+    }
+    void TransitionState(State state)
+    {
+        mCurrentState = state;
     }
 }

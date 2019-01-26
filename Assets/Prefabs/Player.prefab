@@ -60,9 +60,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7dce649b8644b35afc1e8fd982e4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RestSprites: []
+  RestingWithItemSprites: []
+  MoveSprites:
+  - {fileID: 21300000, guid: 74788dcb57abc402995318627284ee36, type: 3}
+  - {fileID: 21300000, guid: 3ca9fd9fa7feb40a79edebdd4b5ffde3, type: 3}
+  - {fileID: 21300000, guid: 0d9a1bcadba5a422dbdc0a3e101b83ce, type: 3}
+  - {fileID: 21300000, guid: 9ef3de7227cab4a50a18a7bb2eac70d3, type: 3}
+  - {fileID: 21300000, guid: d646ec63916fc4ce89faaf67499650a0, type: 3}
+  - {fileID: 21300000, guid: d483cef00fd8746909e479a233bd078b, type: 3}
+  - {fileID: 21300000, guid: 4fa344bb997c7415088330a11af90c17, type: 3}
+  - {fileID: 21300000, guid: dac8fd935d1d14383bfc4aaca4244638, type: 3}
+  - {fileID: 21300000, guid: a078d4fabceb043c496c19597c6953f5, type: 3}
+  - {fileID: 21300000, guid: f08ac0a740ebb4491acda4d54d8cba22, type: 3}
+  MovingWithItemSprites: []
+  MoveFramerate: 0.8
+  RestFramerate: 0.2
   PlayerId: 1
-  MovementSpeed: 2
-  HeldObjectOffset: 0.3
+  MovementSpeed: 0.1
+  HeldObjectOffset: 0.4
 --- !u!212 &519313088003285194
 SpriteRenderer:
   m_ObjectHideFlags: 0
