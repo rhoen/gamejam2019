@@ -1,13 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
 guid: d404c65517e2b4049a92c9301b40aa8d
-=======
-guid: c479ae4d6296d4d6fb0d8523f02f6e82
->>>>>>> dc7b8b5861a3feff36180a13610df3dd4aa91659
-=======
-guid: ca9b41ebf738f429a902948bc09903d0
->>>>>>> rhoen-1
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -83,15 +75,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-<<<<<<< HEAD
-    spriteID: 39ca71003d46840a88dfeb84ac371401
-=======
-    spriteID: f274c24cc20fb4fc487b5f989cccd843
->>>>>>> dc7b8b5861a3feff36180a13610df3dd4aa91659
-=======
-    spriteID: 98bd4ef3634d74752b903a5d6c8c17fe
->>>>>>> rhoen-1
+    spriteID: d9e5d977ae5c94aadbd4c3675046952c
     vertices: []
     indices: 
     edges: []
