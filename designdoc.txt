@@ -1,0 +1,6 @@
+DESIGN DOC
+
+Untitled 2 Player Co-op Demon Summoning Game
+
+Randomly generated rich person's spooky house with one special, bigger, demon-summoning room
+Each player can move around the house freely, top down view
