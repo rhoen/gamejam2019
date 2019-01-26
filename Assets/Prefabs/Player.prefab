@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7dce649b8644b35afc1e8fd982e4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VELOCITY_DECAY: 0.9
   RestSprites: []
   RestingWithItemSprites: []
   MoveSprites:
@@ -167,10 +168,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.75
-  m_Radius: 1.375
+  m_Height: 0.21
+  m_Radius: 0.14
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}

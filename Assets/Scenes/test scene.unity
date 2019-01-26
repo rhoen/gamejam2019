@@ -214,8 +214,6 @@ MonoBehaviour:
   awayFromEnemiesSpeed: 0.01
   seekPlayerJitterFactor: 2
   nextPlayerSeekInterval: 2
-  player1: Player1
-  player2: Player2
 --- !u!1 &821678997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 519313088003285192, guid: 28c66f769a7484d86927b836e1e42b89,
