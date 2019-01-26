@@ -6,7 +6,7 @@
 [Ll]ogs/
 
 *.DS_Store
-
+*.sln
 # Never ignore Asset meta data
 ![Aa]ssets/**/*.meta
 
