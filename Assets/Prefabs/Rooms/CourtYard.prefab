@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 95083594194225981}
   - component: {fileID: 5088442338085646367}
   - component: {fileID: 2626922828729385932}
+  - component: {fileID: 7641394997458095719}
+  - component: {fileID: 2802710862851734941}
   m_Layer: 0
   m_Name: CourtYard
   m_TagString: Untagged
@@ -102,6 +104,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &7641394997458095719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046506733438752466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.56, y: 2.56, z: 0.95}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2802710862851734941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046506733438752466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05508b4eed0d24ff3bdb3f2600f9d167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2259720038580014207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,6 +136,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 95083594194225981}
     m_Modifications:
+    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 5809120868938124100, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -164,11 +196,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 7145294554820224179, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_Size.y
@@ -204,6 +231,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 95083594194225981}
     m_Modifications:
+    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 5809120868938124100, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -259,11 +291,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 7145294554820224179, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_Size.y
@@ -299,6 +326,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 95083594194225981}
     m_Modifications:
+    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 5809120868938124100, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -354,11 +386,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 7145294554820224179, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_Size.y
@@ -384,6 +411,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 95083594194225981}
     m_Modifications:
+    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 5809120868938124100, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -439,11 +471,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 7145294554820224179, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_Size.y
@@ -469,6 +496,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 95083594194225981}
     m_Modifications:
+    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 5809120868938124100, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -524,11 +556,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall
-      objectReference: {fileID: 0}
     - target: {fileID: 7145294554820224179, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_Size.y
@@ -554,6 +581,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 95083594194225981}
     m_Modifications:
+    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 5809120868938124100, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -609,11 +641,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 7145294554820224179, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_Size.y
@@ -649,6 +676,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 95083594194225981}
     m_Modifications:
+    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 5809120868938124100, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -704,11 +736,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 7145294554820224179, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_Size.y
@@ -734,6 +761,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 95083594194225981}
     m_Modifications:
+    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 5809120868938124100, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -788,11 +820,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1064728550580585056, guid: 700768d33acf3461aaeb4f9e263b9140,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7145294554820224179, guid: 700768d33acf3461aaeb4f9e263b9140,
         type: 3}

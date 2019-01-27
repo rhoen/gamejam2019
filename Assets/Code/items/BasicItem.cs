@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewMonoBehaviour : MonoBehaviour
+public class BasicItem : PickUpDroppableItem
 {
+    public bool specialItem;
     // Use this for initialization
     void Start()
     {
