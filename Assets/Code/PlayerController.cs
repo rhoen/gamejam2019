@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour {
 
     void Awake() {
          mCharController = GetComponent<CharacterController>();
+         mPlayerSprite = GetComponent<SpriteRenderer>();
+         mHandSprite = GetComponentsInChildren<SpriteRenderer>()[1];
     }
     void Update() {
         if (mVelocity.magnitude < REST_THRESHOLD)
@@ -59,25 +61,30 @@ public class PlayerController : MonoBehaviour {
         }
 
         Sprite[] spriteArray = null;
+        Sprite[] handSpriteArray = null;
         switch (mCurrentState)
         {
             case State.MovingWithItem:
-                spriteArray = MovingWithItemSprites;
+                spriteArray = MoveSprites;
+                handSpriteArray = MovingWithItemSprites;
                 mFrameCounter += MoveFramerate * (mVelocity.magnitude / MovementSpeed) * Time.deltaTime;
                 break;
 
             case State.Moving:
                 spriteArray = MoveSprites;
+                handSpriteArray = null;
                 mFrameCounter += MoveFramerate * (mVelocity.magnitude / MovementSpeed) * Time.deltaTime;
                 break;
 
             case State.RestingWithItem:
-                spriteArray = RestingWithItemSprites;
+                spriteArray = RestSprites;
+                handSpriteArray = RestingWithItemSprites;
                 mFrameCounter += RestFramerate * Time.deltaTime;
                 break;
 
             case State.Resting:
                 spriteArray = RestSprites;
+                handSpriteArray = null;
                 mFrameCounter += RestFramerate * Time.deltaTime;
                 break;
         }
@@ -85,7 +92,12 @@ public class PlayerController : MonoBehaviour {
         if (spriteArray != null && spriteArray.Length > 0)
         {
             int frame = ((int)mFrameCounter) % spriteArray.Length;
-            GetComponent<SpriteRenderer>().sprite = spriteArray[frame];
+            mPlayerSprite.sprite = spriteArray[frame];
+            if (handSpriteArray != null) {
+                mHandSprite.sprite = handSpriteArray[frame];
+            } else {
+                mHandSprite.sprite = null;
+            }
         }
     }
 
@@ -108,7 +120,8 @@ public class PlayerController : MonoBehaviour {
                 TransitionState(State.Moving);
             }
         }
-        GetComponent<SpriteRenderer>().flipX = mFacingDirection != Vector3.right;
+        mPlayerSprite.flipX = mFacingDirection != Vector3.right;
+        mHandSprite.flipX = mFacingDirection != Vector3.right;
     }
 
     public void OnAButton() {
