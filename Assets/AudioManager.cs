@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
 
-
     public AudioMixerSnapshot FirstItemCollected;
     public static AudioManager Instance { private set; get; }
     // Start is called before the first frame update
