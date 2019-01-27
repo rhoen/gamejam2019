@@ -6,17 +6,42 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
 
-    public AudioMixerSnapshot FirstItemCollected;
+    public AudioMixerSnapshot StartGameSnapshot;
+    public AudioMixerSnapshot FirstItemSnapshot;
+    public AudioMixerSnapshot AlmostWinSnapShot;
+    public AudioMixerSnapshot EndGameSnapshot;
+    public AudioSource WinSource;
+    public AudioSource WinStinger;
+    public AudioSource LoseSource;
+
     public static AudioManager Instance { private set; get; }
     // Start is called before the first frame update
     void Start()
     {
-        FirstItemCollected.TransitionTo(0);
+        StartGameSnapshot.TransitionTo(0);
     }
 
-    // Update is called once per frame
-    void Update()
+    void FirstItem()
     {
-        
+        FirstItemSnapshot.TransitionTo(2f);
+    }
+
+    public void AlmostWin()
+    {
+        AlmostWinSnapShot.TransitionTo(2f);
+    }
+
+    public void Win()
+    {
+        EndGameSnapshot.TransitionTo(0.5f);
+        WinStinger.Play();
+        WinSource.PlayDelayed(1.0f);
+    }
+
+    public void Lose()
+    {
+        EndGameSnapshot.TransitionTo(0.5f);
+        LoseSource.Play();
+
     }
 }
