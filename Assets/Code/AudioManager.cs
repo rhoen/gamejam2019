@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
         StartGameSnapshot.TransitionTo(0);
     }
 
-    void FirstItem()
+    public void FirstItem()
     {
         FirstItemSnapshot.TransitionTo(2f);
     }

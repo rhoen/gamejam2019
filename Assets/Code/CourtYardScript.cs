@@ -57,7 +57,12 @@ public class CourtYardScript : MonoBehaviour
             }
         }
 
-        if(currentSpecialItems.Count == 3)
+        if(currentSpecialItems.Count == 1)
+        {
+            audioManager.FirstItem();
+        }
+
+        if (currentSpecialItems.Count == 3)
         {
             audioManager.AlmostWin();
         }
