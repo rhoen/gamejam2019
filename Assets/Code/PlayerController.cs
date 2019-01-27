@@ -108,6 +108,12 @@ public class PlayerController : MonoBehaviour {
         mVelocity *= VELOCITY_DECAY;
     }
 
+    public bool HoldingItem()
+    {
+        return (mCurrentState == State.MovingWithItem || 
+                mCurrentState == State.RestingWithItem);
+    }
+
     public void OnAxisInput(float horizontal, float vertical) {
         mVelocity += new Vector3(MovementSpeed * horizontal, MovementSpeed * vertical, 0);
         if (Mathf.Abs(horizontal) > .1f || Mathf.Abs(vertical) > .1f) {
