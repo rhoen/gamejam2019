@@ -1211,6 +1211,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2802710862851734941, guid: 6874a399bcb4e43f68713fa10117e589,
+        type: 3}
+      propertyPath: animationWait
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6874a399bcb4e43f68713fa10117e589, type: 3}
 --- !u!4 &410372395 stripped
@@ -4520,6 +4525,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 519313088003285191, guid: 28c66f769a7484d86927b836e1e42b89,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28c66f769a7484d86927b836e1e42b89, type: 3}
 --- !u!4 &1970080361 stripped
@@ -4889,6 +4899,11 @@ PrefabInstance:
     - target: {fileID: 1825600201334058800, guid: 8d6eba61ab7bd48caba6172156d2dbe9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795641595926999441, guid: 8d6eba61ab7bd48caba6172156d2dbe9,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

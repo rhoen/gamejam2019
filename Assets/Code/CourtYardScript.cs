@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class CourtYardScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+  
 
     // Update is called once per frame
     void Update()
@@ -16,6 +12,8 @@ public class CourtYardScript : MonoBehaviour
         CheckForWin();
     }
 
+    public bool win;
+    private bool winning;
 
     // Declare and initialize a new List of GameObjects called currentCollisions.
     List<GameObject> currentSpecialItems = new List<GameObject>();
@@ -49,6 +47,19 @@ public class CourtYardScript : MonoBehaviour
         {
             Debug.Log("YOU WIN!");
         }
+
+        if(win)
+        {
+            if (!winning)
+            {
+                winning = true;
+                StartCoroutine(GameObject.Find("Background").GetComponent<EndGameAnimatorScript>().Animate());
+                StartCoroutine(GameObject.Find("DemonForeground").GetComponent<EndGameAnimatorScript>().Animate());
+                StartCoroutine(GameObject.Find("RocksForeground").GetComponent<EndGameAnimatorScript>().Animate());
+            }
+
+        }
+
     }
 
     private bool PlayersPresent()
@@ -80,4 +91,5 @@ public class CourtYardScript : MonoBehaviour
             players.Remove(col.gameObject);
         }
     }
+
 }
