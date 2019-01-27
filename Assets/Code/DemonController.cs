@@ -14,20 +14,22 @@ public class DemonController : MonoBehaviour
     GameObject closestEnemy;
     float characterDistance;
 
-    public float towardsPlayerSpeed = .03f;
+    public float towardsPlayerSpeed = .02f;
     public float awayFromEnemiesSpeed = .01f;
 
     public float seekPlayerJitterFactor = 2;
     public float nextPlayerSeekInterval = 2f;
     float elapsedTimeTillnextPlayerSeek = 100;
+
+    public float maxMovementTime = 5;
     
     Vector3 newPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        character1 = GameObject.FindGameObjectsWithTag("player")[1];
-        character2 = GameObject.FindGameObjectsWithTag("player")[0];
+        character1 = GameObject.FindGameObjectsWithTag("Player")[1];
+        character2 = GameObject.FindGameObjectsWithTag("Player")[0];
 
         chaseCharacter = character1;
 
@@ -83,6 +85,7 @@ public class DemonController : MonoBehaviour
             newPosition = new Vector3(characterPosition.x + radiusDisplacement.x * seekPlayerJitterFactor, characterPosition.y + radiusDisplacement.y * seekPlayerJitterFactor, transform.position.z);
 
             elapsedTimeTillnextPlayerSeek = 0f;
+            nextPlayerSeekInterval = Random.value * maxMovementTime;
         }
 
         transform.position = Vector3.MoveTowards(transform.position, newPosition, towardsPlayerSpeed);
