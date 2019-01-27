@@ -58,8 +58,11 @@ MonoBehaviour:
     type: 2}
   AlmostWinSnapShot: {fileID: 245342293839042446, guid: a1243e823fd3d471fae49d399d2f16b6,
     type: 2}
-  WinSnapshot: {fileID: 245923075042064476, guid: a1243e823fd3d471fae49d399d2f16b6,
+  EndGameSnapshot: {fileID: 245923075042064476, guid: a1243e823fd3d471fae49d399d2f16b6,
     type: 2}
+  WinSource: {fileID: 2071701319}
+  WinStinger: {fileID: 2071701318}
+  LoseSource: {fileID: 2071701317}
 --- !u!82 &2071701322
 AudioSource:
   m_ObjectHideFlags: 0
