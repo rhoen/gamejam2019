@@ -138,7 +138,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnBButton() {
-        // send away
+        if (!(mCurrentlyHeldObject is BookController)) {
+            return;
+        }
+        mCurrentlyHeldObject.Drop();
+        BookController.Instance.sendToOtherPlayer();
     }
 
     private void dropThenPickUpBook() {
