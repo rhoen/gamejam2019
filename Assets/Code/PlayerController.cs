@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour {
             int frame = ((int)mFrameCounter) % spriteArray.Length;
             mPlayerSprite.sprite = spriteArray[frame];
         }
+
         if (handSpriteArray != null && handSpriteArray.Length > 0) {
             int frame = ((int)mFrameCounter) % handSpriteArray.Length;
             mHandSprite.sprite = handSpriteArray[frame];
