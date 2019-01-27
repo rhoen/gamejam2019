@@ -62,25 +62,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VELOCITY_DECAY: 0.9
   RestSprites:
-  - {fileID: 21300000, guid: 8f5d13ee5875248d78743ac2ab2ad7a2, type: 3}
-  - {fileID: 21300000, guid: 08a513feb52af40c1838e4899274de30, type: 3}
-  - {fileID: 21300000, guid: 6c1b77a88e6a44dd59331d89ed881dd6, type: 3}
-  - {fileID: 21300000, guid: 12f2e2b6d685d4549817f25aa41439a5, type: 3}
-  - {fileID: 21300000, guid: 40784771048294bf1bdbcea0a239788d, type: 3}
-  - {fileID: 21300000, guid: 8186961530ddc420d85e0d06809379e1, type: 3}
-  RestingWithItemSprites: []
+  - {fileID: 21300000, guid: d6247143c4a8a4a6ca3bf8131e6153f9, type: 3}
+  - {fileID: 21300000, guid: 6d2a2ee97ddde4ba0b33a0ea603d466b, type: 3}
+  - {fileID: 21300000, guid: f74f66a44cb5c4649bc518c1644f6ef8, type: 3}
+  - {fileID: 21300000, guid: d1dea787e7a6d4a5fad93c12adb34bef, type: 3}
+  - {fileID: 21300000, guid: 50269fe4b5bd346e68675c2b7995b721, type: 3}
+  - {fileID: 21300000, guid: a83b0f9a9a92f4f09bb4c1a13b4c3867, type: 3}
+  RestingWithItemSprites:
+  - {fileID: 21300000, guid: 86d63472abb2e4cc3be73b0d4e62a6b7, type: 3}
   MoveSprites:
-  - {fileID: 21300000, guid: 2ffa72a54fe714c25b47f68803f34723, type: 3}
-  - {fileID: 21300000, guid: 646b99636e6ff44f286d7add6ec16529, type: 3}
-  - {fileID: 21300000, guid: 99ceea18d5b66478cb21bd1c47b71158, type: 3}
-  - {fileID: 21300000, guid: 8b11bd1acb7344d998ddababf4946955, type: 3}
-  - {fileID: 21300000, guid: 8d8fd9d0eaee247b890d5de0f8eab7a0, type: 3}
-  - {fileID: 21300000, guid: 182ae8c3aa7d249eca856f38fb4e302d, type: 3}
-  - {fileID: 21300000, guid: 0b683b095a2fe429c90edba1645f5d3f, type: 3}
-  - {fileID: 21300000, guid: d9bbf3d7222834d708ffd1308e76f16c, type: 3}
-  - {fileID: 21300000, guid: 66a41a61c02d1488b83e35c7d4dd5521, type: 3}
-  - {fileID: 21300000, guid: d8ec52953e28242088cc3cda66627b5e, type: 3}
-  MovingWithItemSprites: []
+  - {fileID: 21300000, guid: 84d013f7abc8542f2afafd9ad553a6ec, type: 3}
+  - {fileID: 21300000, guid: d92df6c236c7c43a580e583ae7461bc7, type: 3}
+  - {fileID: 21300000, guid: c4d8b27b34d574f63afa42dd456f7bf8, type: 3}
+  - {fileID: 21300000, guid: 10d023459110641f982a6cc7c52b0991, type: 3}
+  - {fileID: 21300000, guid: 72b5c35181c4548cfbc28e0d10b9416a, type: 3}
+  - {fileID: 21300000, guid: 3d73f7bfcd073477e8a15e217ebb523f, type: 3}
+  - {fileID: 21300000, guid: 73c919630f8444cecab35e83b785097f, type: 3}
+  - {fileID: 21300000, guid: 3c2acd8a8988c4dc2a20f38de0bd001a, type: 3}
+  - {fileID: 21300000, guid: 95cc415ff8f51495c87b6df44a00caa3, type: 3}
+  - {fileID: 21300000, guid: 1a5aa35ff07f5492faf17a1a947ecc1a, type: 3}
+  MovingWithItemSprites:
+  - {fileID: 21300000, guid: 86d63472abb2e4cc3be73b0d4e62a6b7, type: 3}
+  - {fileID: 21300000, guid: 826812e7ac7a74786a45d1a594f8959d, type: 3}
+  - {fileID: 21300000, guid: a4e3c859a117a42229e23f44451e80aa, type: 3}
+  - {fileID: 21300000, guid: fd1b4ae0821c146cfa2238c1b1466873, type: 3}
+  - {fileID: 21300000, guid: e0099347ebc4043a29aa82267d8fc9ec, type: 3}
+  - {fileID: 21300000, guid: de018fc4d51324b9195cdd98ddeee29d, type: 3}
+  - {fileID: 21300000, guid: 41b843d6180b046afab9fabf9455646b, type: 3}
+  - {fileID: 21300000, guid: 943bf3d761ce04b71920950cd97be879, type: 3}
+  - {fileID: 21300000, guid: 07bc0a6638cf74a0ebe74f3ec6cfd8f5, type: 3}
+  - {fileID: 21300000, guid: 041ce81fd646d4d3495e07ca67a58d7b, type: 3}
   MoveFramerate: 0.8
   RestFramerate: 3.2
   PlayerId: 1
@@ -131,7 +142,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!54 &519313088003285190
