@@ -11,12 +11,8 @@ public class DemonController : MonoBehaviour
 
     GameObject[] enemies;
 
-
     GameObject closestEnemy;
     float characterDistance;
-
-    float x;
-    float y;
 
     public float towardsPlayerSpeed = .03f;
     public float awayFromEnemiesSpeed = .01f;
@@ -27,15 +23,11 @@ public class DemonController : MonoBehaviour
     
     Vector3 newPosition;
 
-    public string player1;
-    public string player2;
-
-
     // Start is called before the first frame update
     void Start()
     {
-        character1 = GameObject.Find(player1);
-        character2 = GameObject.Find(player2);
+        character1 = GameObject.FindGameObjectsWithTag("player")[1];
+        character2 = GameObject.FindGameObjectsWithTag("player")[0];
 
         chaseCharacter = character1;
 
