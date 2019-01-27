@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3517865495761784088}
   - component: {fileID: 3517865495761784089}
   - component: {fileID: 3517865495761784090}
+  - component: {fileID: 2485019972914960568}
   m_Layer: 0
   m_Name: GreedDemon
   m_TagString: Untagged
@@ -94,6 +95,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towardsPlayerSpeed: 0.02
   awayFromEnemiesSpeed: 0.01
-  seekPlayerJitterFactor: 2
-  nextPlayerSeekInterval: 2
+  seekPlayerJitterFactor: 4
+  nextPlayerSeekInterval: 0.02
   maxMovementTime: 5
+--- !u!136 &2485019972914960568
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3517865495761784091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.32
+  m_Height: 0.64
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

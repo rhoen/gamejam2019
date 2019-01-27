@@ -59,27 +59,10 @@ public class DemonController : MonoBehaviour
             }
         }
 
-        //MoveDirect();
         MoveNear();
         MoveAwayFromEnemies();
 
     }
-
-    private void MoveDirect()
-    {
-        characterDistance = Vector3.Distance(transform.position, chaseCharacter.transform.position);
-
-        if (characterDistance > 4)
-        {
-            towardsPlayerSpeed = 0.05f;
-        }
-        else
-        {
-            towardsPlayerSpeed = 0.03f;
-        }
-        transform.position = Vector3.MoveTowards(transform.position, chaseCharacter.transform.position, towardsPlayerSpeed);
-    }
-
 
     void MoveNear()
     {
@@ -119,7 +102,7 @@ public class DemonController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "player")
+        if(other.gameObject.tag == "player1" || other.gameObject.tag == "player2")
         {
             GameStateManager.Instance.Lose();
         }

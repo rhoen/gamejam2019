@@ -13,6 +13,9 @@ public class AudioManager : MonoBehaviour
     public AudioSource WinSource;
     public AudioSource WinStinger;
     public AudioSource LoseSource;
+    public AudioSource LoseImpact;
+    public AudioSource WinLaugh;
+
 
     public static AudioManager Instance { private set; get; }
     // Start is called before the first frame update
@@ -36,12 +39,14 @@ public class AudioManager : MonoBehaviour
         EndGameSnapshot.TransitionTo(0.5f);
         WinStinger.Play();
         WinSource.PlayDelayed(1.0f);
+        WinLaugh.PlayDelayed(1.0f);
     }
 
     public void Lose()
     {
         EndGameSnapshot.TransitionTo(0.5f);
         LoseSource.Play();
+        LoseImpact.Play();
 
     }
 }

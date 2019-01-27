@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f46dfb7399b2e429c9fd9592062cd7fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bab590083f3dc469ca40a88c88c9d114, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,10 +93,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e24dc4b51db4b739ba5d6bbad5f879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towardsPlayerSpeed: 0.02
+  towardsPlayerSpeed: 0.01
   awayFromEnemiesSpeed: 0.01
-  seekPlayerJitterFactor: 2
-  nextPlayerSeekInterval: 2
+  seekPlayerJitterFactor: 0.1
+  nextPlayerSeekInterval: 1
   maxMovementTime: 5
 --- !u!136 &4616459559212011722
 CapsuleCollider:
@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.32
-  m_Height: 0.64
+  m_Radius: 0.2
+  m_Height: 0.49
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.03, y: -0.02, z: 0}

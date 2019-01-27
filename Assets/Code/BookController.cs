@@ -19,6 +19,7 @@ public class BookController : PickUpDroppableItem {
     }
 
     public override void PickUp() {
+        
     }
 
     public override void Drop() {
