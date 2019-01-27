@@ -22,4 +22,5 @@ public class PentagramController : MonoBehaviour
             OnIncorrectItem();
         }
     }
+
 }
