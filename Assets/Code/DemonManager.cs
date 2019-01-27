@@ -5,6 +5,7 @@ using UnityEngine;
 public class DemonManager : MonoBehaviour
 {
 
+    public GameObject[] enemies; 
     float timer;
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,10 @@ public class DemonManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer % 10 == 0)
+        if(timer > 10)
         {
+            //SpawnDemon();
+            timer = 0;
 
         }
     }
