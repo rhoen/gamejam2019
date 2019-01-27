@@ -6,23 +6,30 @@ public class DemonManager : MonoBehaviour
 {
 
     public GameObject[] enemies; 
-    float timer;
+
+    public float SpawnInterval = 10;
+    float mElapsedTime;
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0f;
+        mElapsedTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if(timer > 10)
+        mElapsedTime += Time.deltaTime;
+        if(mElapsedTime > SpawnInterval)
         {
-            //SpawnDemon();
-            timer = 0;
-
+            SpawnDemon(PickRandomEnemy(), Vector3.zero);
+            mElapsedTime = 0;
         }
+    }
+
+    GameObject PickRandomEnemy() {
+        int randomNum = Random.Range(0, (int)(enemies.Length-.01f));
+        int randIndex = (int)Mathf.Floor(randomNum);
+        return enemies[randIndex];
     }
 
     void SpawnDemon(GameObject demon, Vector3 spawnPosition)

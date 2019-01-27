@@ -111,10 +111,9 @@ public class DemonController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Player" || other.gameObject.name == "Player2")
+        if(other.gameObject.tag == "player")
         {
-            Debug.Log("GAME OVER");
-            // TODO: game over state
+            GameStateManager.Instance.Lose();
         }
     }
 }
