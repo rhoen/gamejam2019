@@ -7,28 +7,25 @@ public class CourtYardScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        
-    }
 
     // Declare and initialize a new List of GameObjects called currentCollisions.
     List<GameObject> currentSpecialItems = new List<GameObject>();
 
-    void OnTriggerEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
+        Debug.Log("basic item?" + col.gameObject.GetComponent<BasicItem>());
 
         // Add the GameObject collided with to the list.
-        if (col.gameObject.GetType() == typeof(BasicItem))
+        if (col.gameObject.GetComponent<BasicItem>())
         {
             currentSpecialItems.Add(col.gameObject);
             Debug.Log("You found a special item");
@@ -50,11 +47,12 @@ public class CourtYardScript : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collision col)
+
+    void OnTriggerExit(Collider col)
     {
 
         // Remove the GameObject collided with from the list.
-        if (col.gameObject.GetType() == typeof(BasicItem))
+        if (col.gameObject.GetComponent<BasicItem>() != null)
         {
             currentSpecialItems.Remove(col.gameObject);
             Debug.Log("you removed a special item");
