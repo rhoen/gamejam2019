@@ -5,35 +5,33 @@ using UnityEngine;
 public class DemonManager : MonoBehaviour
 {
 
-    public GameObject[] enemies; 
+    public static DemonManager Instance {private set; get;}
 
-    public float SpawnInterval = 10;
-    float mElapsedTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        mElapsedTime = 0f;
+    private List<DemonController> activeEnemies = new List<DemonController>();
+
+    void Awake() {
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        mElapsedTime += Time.deltaTime;
-        if(mElapsedTime > SpawnInterval)
-        {
-            SpawnDemon(PickRandomEnemy(), Vector3.zero);
-            mElapsedTime = 0;
+    public GameObject[] enemies;
+
+    public void CreateEnemyTowardPlayer(int targetPlayerId) {
+        GameObject demon = SpawnDemon(PickRandomEnemy(), Vector3.zero);
+        demon.GetComponent<DemonController>().setTargetPlayerId(targetPlayerId);
+        activeEnemies.Add(demon.GetComponent<DemonController>());
+    }
+
+    public void setEnemiesTowardPlayer(int targetPlayerId) {
+        foreach(DemonController demon in activeEnemies) {
+            demon.setTargetPlayerId(targetPlayerId);
         }
     }
-
     GameObject PickRandomEnemy() {
-        int randomNum = Random.Range(0, (int)(enemies.Length-.01f));
-        int randIndex = (int)Mathf.Floor(randomNum);
-        return enemies[randIndex];
+        return enemies[Random.Range(0,enemies.Length)];
     }
 
-    void SpawnDemon(GameObject demon, Vector3 spawnPosition)
+    GameObject SpawnDemon(GameObject demon, Vector3 spawnPosition)
     {
-        Instantiate(demon, spawnPosition, Quaternion.identity);
+        return Instantiate(demon, spawnPosition, Quaternion.identity);
     }
 }

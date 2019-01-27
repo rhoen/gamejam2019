@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     public float RestFramerate = 3;
 
     float mFrameCounter;
-    public int PlayerId;
+    public int PlayerId = 1;
     public float MovementSpeed = 5;
 
     public float HeldObjectOffset = .5f;
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour {
          mCharController = GetComponent<CharacterController>();
          mPlayerSprite = GetComponent<SpriteRenderer>();
          mHandSprite = GetComponentsInChildren<SpriteRenderer>()[1];
+         Debug.Log("my tag is " + gameObject.tag + " " + this);
     }
     void Update() {
         if (mVelocity.magnitude < REST_THRESHOLD)
@@ -142,11 +143,18 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         mCurrentlyHeldObject.Drop();
-        BookController.Instance.sendToOtherPlayer();
+        mCurrentlyHeldObject = null;
+        int otherPlayerId = 1;
+        if (PlayerId == 1) {
+            otherPlayerId = 2;
+        }
+        Debug.Log("send to player " + otherPlayerId);
+        BookController.Instance.SendToPlayer(otherPlayerId);
     }
 
-    private void dropThenPickUpBook() {
-        // when receiving sent book
+    public void DropThenPickUpBook() {
+        mClosestItem = BookController.Instance;
+        dropThenPickUpClosestItemIfExists();
     }
 
     private void dropThenPickUpClosestItemIfExists() {
