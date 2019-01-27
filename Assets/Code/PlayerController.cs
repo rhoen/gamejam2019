@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour {
             int frame = ((int)mFrameCounter) % spriteArray.Length;
             mPlayerSprite.sprite = spriteArray[frame];
         }
+
         if (handSpriteArray != null && handSpriteArray.Length > 0) {
             int frame = ((int)mFrameCounter) % handSpriteArray.Length;
             mHandSprite.sprite = handSpriteArray[frame];
@@ -108,10 +109,20 @@ public class PlayerController : MonoBehaviour {
         mVelocity *= VELOCITY_DECAY;
     }
 
+    public bool HoldingItem()
+    {
+        return (mCurrentState == State.MovingWithItem || 
+                mCurrentState == State.RestingWithItem);
+    }
+
     public void OnAxisInput(float horizontal, float vertical) {
         mVelocity += new Vector3(MovementSpeed * horizontal, MovementSpeed * vertical, 0);
         if (Mathf.Abs(horizontal) > .1f || Mathf.Abs(vertical) > .1f) {
-            mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
+            if (!Mathf.Approximately(horizontal, 0f))
+            {
+                mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
+            }
+
             if (mCurrentlyHeldObject != null) {
                 TransitionState(State.MovingWithItem);
             } else {

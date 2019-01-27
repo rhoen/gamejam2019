@@ -8,7 +8,6 @@ public class DemonController : MonoBehaviour
     GameObject character2;
 
     GameObject chaseCharacter;
-
     GameObject[] enemies;
 
     GameObject closestEnemy;
@@ -110,4 +109,11 @@ public class DemonController : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, -1 * awayFromEnemiesSpeed);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "player")
+        {
+            GameStateManager.Instance.Lose();
+        }
+    }
 }
