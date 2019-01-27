@@ -22,7 +22,6 @@ public class CourtYardScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("basic item?" + col.gameObject.GetComponent<BasicItem>());
 
         // Add the GameObject collided with to the list.
         if (col.gameObject.GetComponent<BasicItem>())
@@ -41,6 +40,7 @@ public class CourtYardScript : MonoBehaviour
 
     void CheckForWin()
     {
+        Debug.Log("Current special item count: " + currentSpecialItems.Count.ToString());
         if (currentSpecialItems.Count == 2)
         {
             Debug.Log("YOU WIN!");
