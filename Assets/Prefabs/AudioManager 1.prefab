@@ -63,6 +63,8 @@ MonoBehaviour:
   WinSource: {fileID: 2071701319}
   WinStinger: {fileID: 2071701318}
   LoseSource: {fileID: 2071701317}
+  LoseImpact: {fileID: 2071701316}
+  WinLaugh: {fileID: 2071701315}
 --- !u!82 &2071701322
 AudioSource:
   m_ObjectHideFlags: 0
@@ -268,11 +270,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243083475811293470, guid: a1243e823fd3d471fae49d399d2f16b6,
     type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 1c3b171a53bb64a3386c14a7096fda2a, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -365,7 +367,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243083475811293470, guid: a1243e823fd3d471fae49d399d2f16b6,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 165f4b37917664d5e89c1cdca423eefb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -462,11 +464,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243083475811293470, guid: a1243e823fd3d471fae49d399d2f16b6,
     type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 282b17af3bfde4a0c987cbfcb0c7034d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
