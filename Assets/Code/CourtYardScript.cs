@@ -13,12 +13,13 @@ public class CourtYardScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CheckForWin();
     }
 
 
     // Declare and initialize a new List of GameObjects called currentCollisions.
     List<GameObject> currentSpecialItems = new List<GameObject>();
+    List<GameObject> players = new List<GameObject>();
 
     void OnTriggerEnter(Collider col)
     {
@@ -28,7 +29,11 @@ public class CourtYardScript : MonoBehaviour
         {
             currentSpecialItems.Add(col.gameObject);
             Debug.Log("You found a special item");
-            CheckForWin();
+        }
+
+        if (col.gameObject.GetComponent<PlayerController>())
+        {
+            players.Add(col.gameObject);
         }
 
         // Print the entire list to the console.
@@ -40,11 +45,23 @@ public class CourtYardScript : MonoBehaviour
 
     void CheckForWin()
     {
-        Debug.Log("Current special item count: " + currentSpecialItems.Count.ToString());
-        if (currentSpecialItems.Count == 2)
+        if (currentSpecialItems.Count == 2 && PlayersPresent())
         {
             Debug.Log("YOU WIN!");
         }
+    }
+
+    private bool PlayersPresent()
+    {
+        bool notHolding = true;
+        foreach (GameObject player in players)
+        {
+            if (player.GetComponent<PlayerController>().HoldingItem())
+            {
+                notHolding = false;
+            }
+        }
+        return notHolding && players.Count == 2;
     }
 
 
@@ -56,6 +73,11 @@ public class CourtYardScript : MonoBehaviour
         {
             currentSpecialItems.Remove(col.gameObject);
             Debug.Log("you removed a special item");
+        }
+
+        if (col.gameObject.GetComponent<PlayerController>())
+        {
+            players.Remove(col.gameObject);
         }
     }
 }
