@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 519313088003285191}
   - component: {fileID: 519313088003285185}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Willow
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   RestFramerate: 3.2
   PlayerId: 1
   MovementSpeed: 0.22
-  HeldObjectOffset: 0.4
+  HeldObjectOffset: 0.19
 --- !u!212 &519313088003285194
 SpriteRenderer:
   m_ObjectHideFlags: 0

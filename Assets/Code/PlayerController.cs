@@ -51,8 +51,9 @@ public class PlayerController : MonoBehaviour {
         {
             if (mCurrentlyHeldObject != null) {
                 TransitionState(State.RestingWithItem);
+            } else {
+                TransitionState(State.Resting);
             }
-            TransitionState(State.Resting);
         }
 
         mCharController.Move(mVelocity * Time.deltaTime);
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour {
         {
             int frame = ((int)mFrameCounter) % spriteArray.Length;
             mPlayerSprite.sprite = spriteArray[frame];
-            if (handSpriteArray != null) {
+            if (handSpriteArray != null && spriteArray.Length > 0) {
                 mHandSprite.sprite = handSpriteArray[frame];
             } else {
                 mHandSprite.sprite = null;
@@ -109,11 +110,7 @@ public class PlayerController : MonoBehaviour {
     public void OnAxisInput(float horizontal, float vertical) {
         mVelocity += new Vector3(MovementSpeed * horizontal, MovementSpeed * vertical, 0);
         if (Mathf.Abs(horizontal) > .1f || Mathf.Abs(vertical) > .1f) {
-            if (Mathf.Abs(vertical) > Mathf.Abs(horizontal)) {
-                mFacingDirection = vertical > 0 ? Vector3.up : Vector3.down;
-            } else {
-                mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
-            }
+            mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
             if (mCurrentlyHeldObject != null) {
                 TransitionState(State.MovingWithItem);
             } else {
