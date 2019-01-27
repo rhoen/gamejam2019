@@ -13,6 +13,7 @@ public class CourtYardScript : MonoBehaviour
     }
 
     public bool win;
+    public AudioManager audioManager;
     private bool winning;
 
     // Declare and initialize a new List of GameObjects called currentCollisions.
@@ -43,23 +44,18 @@ public class CourtYardScript : MonoBehaviour
 
     void CheckForWin()
     {
-        if (currentSpecialItems.Count == 2 && PlayersPresent())
+        if ((currentSpecialItems.Count == 2 && PlayersPresent()) || win)
         {
             Debug.Log("YOU WIN!");
-        }
-
-        if(win)
-        {
             if (!winning)
             {
+                audioManager.AlmostWin();
                 winning = true;
                 StartCoroutine(GameObject.Find("Background").GetComponent<EndGameAnimatorScript>().Animate());
                 StartCoroutine(GameObject.Find("DemonForeground").GetComponent<EndGameAnimatorScript>().Animate());
                 StartCoroutine(GameObject.Find("RocksForeground").GetComponent<EndGameAnimatorScript>().Animate());
             }
-
         }
-
     }
 
     private bool PlayersPresent()
