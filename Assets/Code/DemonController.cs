@@ -27,12 +27,20 @@ public class DemonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        character1 = GameObject.FindGameObjectsWithTag("Player")[1];
-        character2 = GameObject.FindGameObjectsWithTag("Player")[0];
+        character1 = GameObject.FindGameObjectWithTag("player1");
+        character2 = GameObject.FindGameObjectWithTag("player2");
 
         chaseCharacter = character1;
 
         enemies = GameObject.FindGameObjectsWithTag("enemy");
+    }
+
+    public void setTargetPlayerId(int id) {
+        if (id == 1) {
+            chaseCharacter = character1;
+        } else {
+            chaseCharacter = character2;
+        }
     }
 
     // Update is called once per frame
@@ -51,27 +59,10 @@ public class DemonController : MonoBehaviour
             }
         }
 
-        //MoveDirect();
         MoveNear();
         MoveAwayFromEnemies();
 
     }
-
-    private void MoveDirect()
-    {
-        characterDistance = Vector3.Distance(transform.position, chaseCharacter.transform.position);
-
-        if (characterDistance > 4)
-        {
-            towardsPlayerSpeed = 0.05f;
-        }
-        else
-        {
-            towardsPlayerSpeed = 0.03f;
-        }
-        transform.position = Vector3.MoveTowards(transform.position, chaseCharacter.transform.position, towardsPlayerSpeed);
-    }
-
 
     void MoveNear()
     {
@@ -111,7 +102,7 @@ public class DemonController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "player")
+        if(other.gameObject.tag == "player1" || other.gameObject.tag == "player2")
         {
             GameStateManager.Instance.Lose();
         }
