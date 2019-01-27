@@ -23,15 +23,11 @@ public class DemonController : MonoBehaviour
     
     Vector3 newPosition;
 
-    public string player1;
-    public string player2;
-
-
     // Start is called before the first frame update
     void Start()
     {
-        character1 = GameObject.FindGameObjectsWithTag("player")[0];
-        character2 = GameObject.FindGameObjectsWithTag("player")[1];
+        character1 = GameObject.FindGameObjectsWithTag("player")[1];
+        character2 = GameObject.FindGameObjectsWithTag("player")[0];
 
         chaseCharacter = character1;
 
