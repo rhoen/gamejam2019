@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class CourtYardScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+  
 
     // Update is called once per frame
     void Update()
@@ -16,6 +12,9 @@ public class CourtYardScript : MonoBehaviour
         CheckForWin();
     }
 
+    public bool win;
+    public AudioManager audioManager;
+    private bool winning;
 
     // Declare and initialize a new List of GameObjects called currentCollisions.
     List<GameObject> currentSpecialItems = new List<GameObject>();
@@ -45,9 +44,22 @@ public class CourtYardScript : MonoBehaviour
 
     void CheckForWin()
     {
-        if (currentSpecialItems.Count == 2 && PlayersPresent())
+        if ((currentSpecialItems.Count == 5 && PlayersPresent()) || win)
         {
             Debug.Log("YOU WIN!");
+            if (!winning)
+            {
+                audioManager.Win();
+                winning = true;
+                StartCoroutine(GameObject.Find("Background").GetComponent<EndGameAnimatorScript>().Animate());
+                StartCoroutine(GameObject.Find("DemonForeground").GetComponent<EndGameAnimatorScript>().Animate());
+                StartCoroutine(GameObject.Find("RocksForeground").GetComponent<EndGameAnimatorScript>().Animate());
+            }
+        }
+
+        if(currentSpecialItems.Count == 3)
+        {
+            audioManager.AlmostWin();
         }
     }
 
@@ -80,4 +92,5 @@ public class CourtYardScript : MonoBehaviour
             players.Remove(col.gameObject);
         }
     }
+
 }

@@ -27,12 +27,20 @@ public class DemonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        character1 = GameObject.FindGameObjectsWithTag("Player")[1];
-        character2 = GameObject.FindGameObjectsWithTag("Player")[0];
+        character1 = GameObject.FindGameObjectWithTag("player1");
+        character2 = GameObject.FindGameObjectWithTag("player2");
 
         chaseCharacter = character1;
 
         enemies = GameObject.FindGameObjectsWithTag("enemy");
+    }
+
+    public void setTargetPlayerId(int id) {
+        if (id == 1) {
+            chaseCharacter = character1;
+        } else {
+            chaseCharacter = character2;
+        }
     }
 
     // Update is called once per frame
