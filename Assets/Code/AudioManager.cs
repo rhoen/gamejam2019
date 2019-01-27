@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource LoseSource;
     public AudioSource LoseImpact;
     public AudioSource WinLaugh;
+    public List<AudioSource> LoseSources;
 
 
     public static AudioManager Instance { private set; get; }
@@ -47,6 +48,7 @@ public class AudioManager : MonoBehaviour
         EndGameSnapshot.TransitionTo(0.5f);
         LoseSource.Play();
         LoseImpact.Play();
-
+        int loseIndex = (int)Random.Range(0, LoseSources.Count);
+        LoseSources[loseIndex].PlayDelayed(1.0f);
     }
 }
