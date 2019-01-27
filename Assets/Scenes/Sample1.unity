@@ -2622,6 +2622,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071701323, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
+      propertyPath: EndGameSnapshot
+      value: 
+      objectReference: {fileID: 245923075042064476, guid: a1243e823fd3d471fae49d399d2f16b6,
+        type: 2}
+    - target: {fileID: 2071701323, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
+      propertyPath: LoseSource
+      value: 
+      objectReference: {fileID: 1610880284}
+    - target: {fileID: 2071701323, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
+      propertyPath: WinSource
+      value: 
+      objectReference: {fileID: 1610880282}
+    - target: {fileID: 2071701323, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
+      propertyPath: WinStinger
+      value: 
+      objectReference: {fileID: 1610880283}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
 --- !u!4 &1208422143 stripped
@@ -3851,6 +3868,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7661850286801746941, guid: 2b04e0380b6c949eaacd38b662761330,
     type: 3}
   m_PrefabInstance: {fileID: 762885025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1610880282 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2071701319, guid: 70ffb540518a44e6ab22c5af610a841c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169710428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1610880283 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2071701318, guid: 70ffb540518a44e6ab22c5af610a841c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169710428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1610880284 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2071701317, guid: 70ffb540518a44e6ab22c5af610a841c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169710428}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1610880290 stripped
 MonoBehaviour:

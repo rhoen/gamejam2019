@@ -9,7 +9,10 @@ public class AudioManager : MonoBehaviour
     public AudioMixerSnapshot StartGameSnapshot;
     public AudioMixerSnapshot FirstItemSnapshot;
     public AudioMixerSnapshot AlmostWinSnapShot;
-    public AudioMixerSnapshot WinSnapshot;
+    public AudioMixerSnapshot EndGameSnapshot;
+    public AudioSource WinSource;
+    public AudioSource WinStinger;
+    public AudioSource LoseSource;
 
     public static AudioManager Instance { private set; get; }
     // Start is called before the first frame update
@@ -20,16 +23,25 @@ public class AudioManager : MonoBehaviour
 
     void FirstItem()
     {
-        FirstItemSnapshot.TransitionTo(0);
+        FirstItemSnapshot.TransitionTo(2f);
     }
 
     public void AlmostWin()
     {
-        AlmostWinSnapShot.TransitionTo(0);
+        AlmostWinSnapShot.TransitionTo(2f);
     }
 
     public void Win()
     {
-        WinSnapshot.TransitionTo(0);
+        EndGameSnapshot.TransitionTo(0.5f);
+        WinStinger.Play();
+        WinSource.PlayDelayed(1.0f);
+    }
+
+    public void Lose()
+    {
+        EndGameSnapshot.TransitionTo(0.5f);
+        LoseSource.Play();
+
     }
 }

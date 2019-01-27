@@ -44,17 +44,22 @@ public class CourtYardScript : MonoBehaviour
 
     void CheckForWin()
     {
-        if ((currentSpecialItems.Count == 2 && PlayersPresent()) || win)
+        if ((currentSpecialItems.Count == 5 && PlayersPresent()) || win)
         {
             Debug.Log("YOU WIN!");
             if (!winning)
             {
-                audioManager.AlmostWin();
+                audioManager.Win();
                 winning = true;
                 StartCoroutine(GameObject.Find("Background").GetComponent<EndGameAnimatorScript>().Animate());
                 StartCoroutine(GameObject.Find("DemonForeground").GetComponent<EndGameAnimatorScript>().Animate());
                 StartCoroutine(GameObject.Find("RocksForeground").GetComponent<EndGameAnimatorScript>().Animate());
             }
+        }
+
+        if(currentSpecialItems.Count == 3)
+        {
+            audioManager.AlmostWin();
         }
     }
 
