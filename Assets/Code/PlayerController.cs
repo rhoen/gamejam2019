@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour {
     MementoController mMemento;
     private CharacterController mCharController;
 
+    private SpriteRenderer mPlayerSprite;
+    private SpriteRenderer mHandSprite;
+
     private State mCurrentState;
 
     public enum State

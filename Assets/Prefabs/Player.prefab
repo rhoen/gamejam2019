@@ -60,24 +60,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7dce649b8644b35afc1e8fd982e4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RestSprites: []
-  RestingWithItemSprites: []
+  VELOCITY_DECAY: 0.9
+  RestSprites:
+  - {fileID: 21300000, guid: d6247143c4a8a4a6ca3bf8131e6153f9, type: 3}
+  - {fileID: 21300000, guid: 6d2a2ee97ddde4ba0b33a0ea603d466b, type: 3}
+  - {fileID: 21300000, guid: f74f66a44cb5c4649bc518c1644f6ef8, type: 3}
+  - {fileID: 21300000, guid: d1dea787e7a6d4a5fad93c12adb34bef, type: 3}
+  - {fileID: 21300000, guid: 50269fe4b5bd346e68675c2b7995b721, type: 3}
+  - {fileID: 21300000, guid: a83b0f9a9a92f4f09bb4c1a13b4c3867, type: 3}
+  RestingWithItemSprites:
+  - {fileID: 21300000, guid: 86d63472abb2e4cc3be73b0d4e62a6b7, type: 3}
   MoveSprites:
-  - {fileID: 21300000, guid: 74788dcb57abc402995318627284ee36, type: 3}
-  - {fileID: 21300000, guid: 3ca9fd9fa7feb40a79edebdd4b5ffde3, type: 3}
-  - {fileID: 21300000, guid: 0d9a1bcadba5a422dbdc0a3e101b83ce, type: 3}
-  - {fileID: 21300000, guid: 9ef3de7227cab4a50a18a7bb2eac70d3, type: 3}
-  - {fileID: 21300000, guid: d646ec63916fc4ce89faaf67499650a0, type: 3}
-  - {fileID: 21300000, guid: d483cef00fd8746909e479a233bd078b, type: 3}
-  - {fileID: 21300000, guid: 4fa344bb997c7415088330a11af90c17, type: 3}
-  - {fileID: 21300000, guid: dac8fd935d1d14383bfc4aaca4244638, type: 3}
-  - {fileID: 21300000, guid: a078d4fabceb043c496c19597c6953f5, type: 3}
-  - {fileID: 21300000, guid: f08ac0a740ebb4491acda4d54d8cba22, type: 3}
-  MovingWithItemSprites: []
+  - {fileID: 21300000, guid: 84d013f7abc8542f2afafd9ad553a6ec, type: 3}
+  - {fileID: 21300000, guid: d92df6c236c7c43a580e583ae7461bc7, type: 3}
+  - {fileID: 21300000, guid: c4d8b27b34d574f63afa42dd456f7bf8, type: 3}
+  - {fileID: 21300000, guid: 10d023459110641f982a6cc7c52b0991, type: 3}
+  - {fileID: 21300000, guid: 72b5c35181c4548cfbc28e0d10b9416a, type: 3}
+  - {fileID: 21300000, guid: 3d73f7bfcd073477e8a15e217ebb523f, type: 3}
+  - {fileID: 21300000, guid: 73c919630f8444cecab35e83b785097f, type: 3}
+  - {fileID: 21300000, guid: 3c2acd8a8988c4dc2a20f38de0bd001a, type: 3}
+  - {fileID: 21300000, guid: 95cc415ff8f51495c87b6df44a00caa3, type: 3}
+  - {fileID: 21300000, guid: 1a5aa35ff07f5492faf17a1a947ecc1a, type: 3}
+  MovingWithItemSprites:
+  - {fileID: 21300000, guid: 86d63472abb2e4cc3be73b0d4e62a6b7, type: 3}
+  - {fileID: 21300000, guid: 826812e7ac7a74786a45d1a594f8959d, type: 3}
+  - {fileID: 21300000, guid: a4e3c859a117a42229e23f44451e80aa, type: 3}
+  - {fileID: 21300000, guid: fd1b4ae0821c146cfa2238c1b1466873, type: 3}
+  - {fileID: 21300000, guid: e0099347ebc4043a29aa82267d8fc9ec, type: 3}
+  - {fileID: 21300000, guid: de018fc4d51324b9195cdd98ddeee29d, type: 3}
+  - {fileID: 21300000, guid: 41b843d6180b046afab9fabf9455646b, type: 3}
+  - {fileID: 21300000, guid: 943bf3d761ce04b71920950cd97be879, type: 3}
+  - {fileID: 21300000, guid: 07bc0a6638cf74a0ebe74f3ec6cfd8f5, type: 3}
+  - {fileID: 21300000, guid: 041ce81fd646d4d3495e07ca67a58d7b, type: 3}
   MoveFramerate: 0.8
-  RestFramerate: 0.2
+  RestFramerate: 3.2
   PlayerId: 1
-  MovementSpeed: 0.1
+  MovementSpeed: 0.22
   HeldObjectOffset: 0.4
 --- !u!212 &519313088003285194
 SpriteRenderer:
@@ -116,15 +134,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5683628902f1b4ed6abf566436aa3714, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ffa72a54fe714c25b47f68803f34723, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.75, y: 2.75}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!54 &519313088003285190
@@ -167,10 +185,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.75
-  m_Radius: 1.375
+  m_Height: 0.21
+  m_Radius: 0.14
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}

@@ -214,8 +214,6 @@ MonoBehaviour:
   awayFromEnemiesSpeed: 0.01
   seekPlayerJitterFactor: 2
   nextPlayerSeekInterval: 2
-  player1: Player1
-  player2: Player2
 --- !u!1 &821678997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 519313088003285192, guid: 28c66f769a7484d86927b836e1e42b89,
@@ -563,6 +561,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 74788dcb57abc402995318627284ee36,
         type: 3}
+    - target: {fileID: 519313088003285194, guid: 28c66f769a7484d86927b836e1e42b89,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28c66f769a7484d86927b836e1e42b89, type: 3}
 --- !u!1 &1670420988
@@ -918,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 519313088003285195, guid: 28c66f769a7484d86927b836e1e42b89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.254
       objectReference: {fileID: 0}
     - target: {fileID: 519313088003285195, guid: 28c66f769a7484d86927b836e1e42b89,
         type: 3}
@@ -970,21 +973,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 519313088003285195, guid: 28c66f769a7484d86927b836e1e42b89,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 519313088003285195, guid: 28c66f769a7484d86927b836e1e42b89,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 519313088003285194, guid: 28c66f769a7484d86927b836e1e42b89,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 74788dcb57abc402995318627284ee36,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28c66f769a7484d86927b836e1e42b89, type: 3}
