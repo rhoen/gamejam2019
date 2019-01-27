@@ -45,7 +45,6 @@ public class PlayerController : MonoBehaviour {
          mCharController = GetComponent<CharacterController>();
          mPlayerSprite = GetComponent<SpriteRenderer>();
          mHandSprite = GetComponentsInChildren<SpriteRenderer>()[1];
-         Debug.Log("my tag is " + gameObject.tag + " " + this);
     }
     void Update() {
         if (mVelocity.magnitude < REST_THRESHOLD)
