@@ -7,24 +7,26 @@ public class BasicItem : PickUpDroppableItem
 
     private bool mWasRevealed;
 
-    public void OnTriggerEnter(Collider other) {
-        if (!specialItem) { return; }
-        if (other.GetComponent<BookController>() != null) {
-             mWasRevealed = true;
-        }
-    }
-    // Use this for initialization
-    void Start()
-    {
+    private GameObject lightPrefab;
 
+    private GameObject mRevealLight;
+
+    void Awake() {
+        lightPrefab = GameObject.FindWithTag("lightforitem");
+    }
+
+    public void OnTriggerEnter(Collider other) {
+        if (!specialItem || mRevealLight != null) { return; }
+        if (other.GetComponent<BookController>() != null) {
+             addLight();
+        }
     }
 
     void addLight() {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        Vector3 lightPos = gameObject.transform.position;
+        lightPos.z -= .13f;
+        GameObject lightClone = Instantiate(lightPrefab, lightPos, transform.rotation);
+        lightClone.transform.parent = gameObject.transform;
+        mRevealLight = lightClone;
     }
 }

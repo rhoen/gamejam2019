@@ -8,6 +8,9 @@ TagManager:
   - book
   - memento
   - player
+  - player2
+  - player1
+  - lightforitem
   layers:
   - Default
   - TransparentFX
