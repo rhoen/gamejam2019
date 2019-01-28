@@ -11,13 +11,12 @@ public class GameStateManager : MonoBehaviour
     }
 
     public void Lose() {
-        Debug.Log("GAME OVER");
-        //play lose music, restart scene
+        AudioManager.Instance.Lose();
     }
 
 
     public void Win() {
-        //play win music
+        AudioManager.Instance.Win();
     }
 
 }

@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towardsPlayerSpeed: 0.02
   awayFromEnemiesSpeed: 0.01
-  seekPlayerJitterFactor: 4
+  seekPlayerJitterFactor: 1
   nextPlayerSeekInterval: 0.02
   maxMovementTime: 5
 --- !u!136 &2485019972914960568

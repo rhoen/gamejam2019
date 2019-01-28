@@ -137,6 +137,9 @@ public class PlayerController : MonoBehaviour {
         dropThenPickUpClosestItemIfExists();
     }
 
+    public void Die() {
+    }
+
     public void OnBButton() {
         if (!(mCurrentlyHeldObject is BookController)) {
             return;
