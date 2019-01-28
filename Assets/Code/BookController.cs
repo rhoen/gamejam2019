@@ -7,8 +7,11 @@ public class BookController : PickUpDroppableItem {
     public GameObject SendLightPrefab;
     public static BookController Instance { get; private set;}
 
+    Light mLight;
+
     void Awake() {
         BookController.Instance = this;
+        mLight = GetComponentInChildren<Light>();
     }
 
     public void SendToPlayer(int playerId) {
@@ -17,10 +20,14 @@ public class BookController : PickUpDroppableItem {
     }
 
     public override void PickUp() {
-        
+        // lerp
+        mLight.range = 3f;
+        mLight.intensity = 4f;
     }
 
     public override void Drop() {
+        mLight.range = 1.8f;
+        mLight.intensity = 1.6f;
     }
     
 }
