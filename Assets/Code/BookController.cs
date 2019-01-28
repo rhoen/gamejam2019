@@ -14,8 +14,6 @@ public class BookController : PickUpDroppableItem {
     public void SendToPlayer(int playerId) {
         GameObject clone = Instantiate(SendLightPrefab, transform.position, transform.rotation);
         clone.GetComponent<SendBookController>().SendToPlayer(playerId);
-        DemonManager.Instance.setEnemiesTowardPlayer(playerId);
-        DemonManager.Instance.CreateEnemyTowardPlayer(playerId);
     }
 
     public override void PickUp() {

@@ -15,17 +15,11 @@ public class DemonManager : MonoBehaviour
 
     public GameObject[] enemies;
 
-    public void CreateEnemyTowardPlayer(int targetPlayerId) {
+    public void SpawnEnemy() {
         GameObject demon = SpawnDemon(PickRandomEnemy(), Vector3.zero);
-        demon.GetComponent<DemonController>().setTargetPlayerId(targetPlayerId);
         activeEnemies.Add(demon.GetComponent<DemonController>());
     }
 
-    public void setEnemiesTowardPlayer(int targetPlayerId) {
-        foreach(DemonController demon in activeEnemies) {
-            demon.setTargetPlayerId(targetPlayerId);
-        }
-    }
     GameObject PickRandomEnemy() {
         return enemies[Random.Range(0,enemies.Length)];
     }

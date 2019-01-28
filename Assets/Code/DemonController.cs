@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class DemonController : MonoBehaviour
 {
-    GameObject character1;
-    GameObject character2;
-
-    GameObject chaseCharacter;
+    GameObject target;
     GameObject[] enemies;
 
     GameObject closestEnemy;
@@ -27,47 +24,21 @@ public class DemonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        character1 = GameObject.FindGameObjectWithTag("player1");
-        character2 = GameObject.FindGameObjectWithTag("player2");
-
-        chaseCharacter = character1;
-
         enemies = GameObject.FindGameObjectsWithTag("enemy");
-    }
-
-    public void setTargetPlayerId(int id) {
-        if (id == 1) {
-            chaseCharacter = character1;
-        } else {
-            chaseCharacter = character2;
-        }
+        target = BookController.Instance.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         elapsedTimeTillnextPlayerSeek += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (chaseCharacter == character1)
-            {
-                chaseCharacter = character2;
-            }
-            else
-            {
-                chaseCharacter = character1;
-            }
-        }
-
         MoveNear();
         MoveAwayFromEnemies();
-
     }
 
     void MoveNear()
     {
-
-        Vector3 characterPosition = chaseCharacter.transform.position;
+        Vector3 characterPosition = target.transform.position;
         if (elapsedTimeTillnextPlayerSeek > nextPlayerSeekInterval)
         {
             Vector2 radiusDisplacement = Random.insideUnitCircle;
@@ -102,7 +73,7 @@ public class DemonController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "player1" || other.gameObject.tag == "player2")
+        if (other.gameObject.tag == "player1" || other.gameObject.tag == "player2")
         {
             GameStateManager.Instance.Lose();
         }

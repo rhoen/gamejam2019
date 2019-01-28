@@ -26,19 +26,17 @@ public class CourtYardScript : MonoBehaviour
         // Add the GameObject collided with to the list.
         if (col.gameObject.GetComponent<BasicItem>())
         {
+            if (currentSpecialItems.Contains(col.gameObject)) { return; }
+            if (!col.gameObject.GetComponent<BasicItem>().specialItem) { return; }
             currentSpecialItems.Add(col.gameObject);
+            col.gameObject.GetComponent<BasicItem>().enabled = false;
             Debug.Log("You found a special item");
+            DemonManager.Instance.SpawnEnemy();
         }
 
         if (col.gameObject.GetComponent<PlayerController>())
         {
             players.Add(col.gameObject);
-        }
-
-        // Print the entire list to the console.
-        foreach (GameObject gObject in currentSpecialItems)
-        {
-            print(gObject.name);
         }
     }
 
@@ -46,7 +44,6 @@ public class CourtYardScript : MonoBehaviour
     {
         if ((currentSpecialItems.Count == 5 && PlayersPresent()) || win)
         {
-            Debug.Log("YOU WIN!");
             if (!winning)
             {
                 audioManager.Win();
@@ -84,7 +81,6 @@ public class CourtYardScript : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-
         // Remove the GameObject collided with from the list.
         if (col.gameObject.GetComponent<BasicItem>() != null)
         {
