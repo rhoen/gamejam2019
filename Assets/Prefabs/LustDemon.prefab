@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683184773517311690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6987198281742854900}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3faa85e4dfa0d46e68598b97ccee2c93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,11 +94,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e24dc4b51db4b739ba5d6bbad5f879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towardsPlayerSpeed: 0.022
+  MoveSprites:
+  - {fileID: 21300000, guid: 3faa85e4dfa0d46e68598b97ccee2c93, type: 3}
+  - {fileID: 21300000, guid: d2822e5c229414a7ab701d6e0dab802a, type: 3}
+  - {fileID: 21300000, guid: 97c9751b61e0b48e49375c0486bd2559, type: 3}
+  - {fileID: 21300000, guid: 792faea4876f94787847698e56208817, type: 3}
+  - {fileID: 21300000, guid: 5bd70d1d305f44465a2116a80e171f95, type: 3}
+  - {fileID: 21300000, guid: d0ea0241319e24c93bce2b93e34ac6c3, type: 3}
+  InitialMoveSpeed: 0.75
+  MoveFramerate: 5
+  Acceleration: 1
   awayFromEnemiesSpeed: 0.01
-  seekPlayerJitterFactor: 0
-  nextPlayerSeekInterval: 1
-  maxMovementTime: 5
+  SeekTargetJitterFactor: 0
+  RandomTargetSeekIntervalMax: 0.01
+  RandomTargetSeekIntervalMin: 0.01
 --- !u!136 &4466541545220045491
 CapsuleCollider:
   m_ObjectHideFlags: 0

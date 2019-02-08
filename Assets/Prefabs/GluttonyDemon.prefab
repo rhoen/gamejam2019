@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3689037624745186483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2264687, y: 0.7237783, z: -0.6450086}
+  m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +93,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e24dc4b51db4b739ba5d6bbad5f879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towardsPlayerSpeed: 0.01
+  MoveSprites:
+  - {fileID: 21300000, guid: bab590083f3dc469ca40a88c88c9d114, type: 3}
+  - {fileID: 21300000, guid: e9ff810e0676e4933905f7e619e0757b, type: 3}
+  - {fileID: 21300000, guid: 68e7470c687df408694d32e59cb3b5fe, type: 3}
+  - {fileID: 21300000, guid: 6e20476c032f04d04b0e628b90c8c8fd, type: 3}
+  - {fileID: 21300000, guid: 5589372d7ecb245ff9acd5fb50a7490b, type: 3}
+  - {fileID: 21300000, guid: a2129a2a38ad540a19c6c807f573398c, type: 3}
+  MovementSpeed: 1
+  InitialMoveSpeed: 1
+  MoveFramerate: 5
+  TowardsPlayerSpeed: 0.02
   awayFromEnemiesSpeed: 0.01
   seekPlayerJitterFactor: 0.1
   nextPlayerSeekInterval: 1

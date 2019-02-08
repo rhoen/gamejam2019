@@ -7,21 +7,35 @@ public class DemonController : MonoBehaviour
     GameObject target;
     GameObject[] enemies;
 
-    GameObject closestEnemy;
-    float characterDistance;
+    public Sprite[] MoveSprites;
 
-    public float towardsPlayerSpeed = .02f;
+    public float InitialMoveSpeed = 1f;
+
+    private SpriteRenderer mSprite;
+    public float MoveFramerate = 5;
+
+    public float Acceleration = 1f;
+
     public float awayFromEnemiesSpeed = .01f;
+    public float SeekTargetJitterFactor = .5f;
+    public float RandomTargetSeekIntervalMax = 3;
 
-    public float seekPlayerJitterFactor = 2;
-    public float nextPlayerSeekInterval = 2f;
-    float elapsedTimeTillnextPlayerSeek = 100;
+    public float RandomTargetSeekIntervalMin = 2;
 
-    public float maxMovementTime = 5;
-    
-    Vector3 newPosition;
+    float mCurrentTargetSeekInterval = 0;
+    float elapsedTimeTillNextTargetSeek = 100;
 
-    // Start is called before the first frame update
+    float mFrameCounter;
+
+    Vector3 mVelocity = Vector3.zero;
+
+    GameObject closestEnemy;
+
+
+    void Awake() {
+         mSprite = GetComponent<SpriteRenderer>();
+    }
+
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("enemy");
@@ -31,25 +45,35 @@ public class DemonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        elapsedTimeTillnextPlayerSeek += Time.deltaTime;
-        MoveNear();
+        mFrameCounter += MoveFramerate * mVelocity.magnitude * Time.deltaTime;
+        if (MoveSprites != null && MoveSprites.Length > 0)
+        {
+            int frame = ((int)mFrameCounter) % MoveSprites.Length;
+            mSprite.sprite = MoveSprites[frame];
+        }
+
+        elapsedTimeTillNextTargetSeek += Time.deltaTime;
+        MoveTowardsTarget();
         MoveAwayFromEnemies();
     }
 
-    void MoveNear()
+    void MoveTowardsTarget()
     {
-        Vector3 characterPosition = target.transform.position;
-        if (elapsedTimeTillnextPlayerSeek > nextPlayerSeekInterval)
+        if (elapsedTimeTillNextTargetSeek > mCurrentTargetSeekInterval)
         {
-            Vector2 radiusDisplacement = Random.insideUnitCircle;
+            elapsedTimeTillNextTargetSeek = 0f;
+            Vector3 targetPosition = target.transform.position;
+            Vector2 radiusDisplacement = Random.insideUnitCircle * SeekTargetJitterFactor;
+            Vector3 newTowardsPosition = new Vector3(targetPosition.x + radiusDisplacement.x, targetPosition.y + radiusDisplacement.y, targetPosition.z);
 
-            newPosition = new Vector3(characterPosition.x + radiusDisplacement.x * seekPlayerJitterFactor, characterPosition.y + radiusDisplacement.y * seekPlayerJitterFactor, transform.position.z);
-
-            elapsedTimeTillnextPlayerSeek = 0f;
-            nextPlayerSeekInterval = Random.value * maxMovementTime;
+            mCurrentTargetSeekInterval = Random.value * (RandomTargetSeekIntervalMax - RandomTargetSeekIntervalMin) + RandomTargetSeekIntervalMin;
+            Vector3 vel = (newTowardsPosition - transform.position);
+            vel.z = 0;
+            mVelocity = vel.normalized * InitialMoveSpeed;
         }
-
-        transform.position = Vector3.MoveTowards(transform.position, newPosition, towardsPlayerSpeed);
+        mVelocity *= Acceleration;
+    
+        transform.position += mVelocity * Time.deltaTime;
     }
 
 

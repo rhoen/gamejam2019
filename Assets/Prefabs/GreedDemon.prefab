@@ -97,7 +97,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3517865495761784091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2264687, y: 0.7237783, z: -0.6450086}
+  m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3262892504589594904}
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ca57918e7d6a8481bb5245711e7210c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -140,7 +140,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0589b232c42d1498e9cfb7b549cbfb9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -164,11 +164,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e24dc4b51db4b739ba5d6bbad5f879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towardsPlayerSpeed: 0.02
+  MoveSprites:
+  - {fileID: 21300000, guid: 0589b232c42d1498e9cfb7b549cbfb9b, type: 3}
+  - {fileID: 21300000, guid: 485b6d9f9f32c4f6199682bd20cf45eb, type: 3}
+  - {fileID: 21300000, guid: b8ce5c3f905f441918c2a2f6092a8ddd, type: 3}
+  - {fileID: 21300000, guid: c678120cd2728479cba12e71bf090892, type: 3}
+  - {fileID: 21300000, guid: b0e2fe008b78d4ee6b3673fa622b32d0, type: 3}
+  - {fileID: 21300000, guid: 95c0b2d50181c457eaa1dbb1624bb550, type: 3}
+  - {fileID: 21300000, guid: a03802d1ae97848f48bf5afea9fcb72c, type: 3}
+  InitialMoveSpeed: 1.2
+  MoveFramerate: 5
+  Acceleration: 0.99
   awayFromEnemiesSpeed: 0.01
-  seekPlayerJitterFactor: 1
-  nextPlayerSeekInterval: 0.02
-  maxMovementTime: 5
+  SeekTargetJitterFactor: 0.5
+  RandomTargetSeekIntervalMax: 3
+  RandomTargetSeekIntervalMin: 2
 --- !u!136 &2485019972914960568
 CapsuleCollider:
   m_ObjectHideFlags: 0

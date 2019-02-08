@@ -7,7 +7,6 @@ TagManager:
   - enemy
   - book
   - memento
-  - player
   - player2
   - player1
   - lightforitem
