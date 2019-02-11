@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SendBookController : PickUpDroppableItem {
+    const float TRIGGER_THRESHOLD = .1f;
 
-    public float TrackSpeed = 0.02f;
-    public float MinX = float.NegativeInfinity;
-    public float MaxX = float.PositiveInfinity;
+    const float ACCELERATE_AFTER_TIME_ALIVE = 3f;
+    public float Speed = 2.5f;
+    
+    int? trackPlayerId = null;
+    GameObject mTarget;
+    Vector3 mVelocity = Vector3.zero;
 
-    private int? trackPlayerId = null;
-
-    private GameObject Target;
+    float mActiveTime = 0f;
 
     public void SendToPlayer(int playerId) {
         PlayerController playerToSend = null;
@@ -19,36 +21,32 @@ public class SendBookController : PickUpDroppableItem {
         } else {
             playerToSend = GameObject.FindGameObjectWithTag("player2").GetComponent<PlayerController>();
         }
-        Target = playerToSend.gameObject;
+        mTarget = playerToSend.gameObject;
         trackPlayerId = playerId;
     }
 
-
-    public void OnTriggerEnter(Collider other) {
+    void FixedUpdate()
+    {
         if (trackPlayerId == null) { return; }
-        PlayerController otherPlayer = other.GetComponent<PlayerController>();
-        if (otherPlayer == null) {
-            return;
-        }
-
-        if (otherPlayer.PlayerId == trackPlayerId) {
-            otherPlayer.DropThenPickUpBook();
-            Destroy(gameObject);
+        mActiveTime += Time.deltaTime;
+        if (Vector3.Distance(mTarget.transform.position, transform.position) < TRIGGER_THRESHOLD)
+        {
+            PlayerController otherPlayer = mTarget.GetComponent<PlayerController>();
+            if (otherPlayer == null) {
+                return;
+            }
+            if (otherPlayer.PlayerId == trackPlayerId) {
+                otherPlayer.DropThenPickUpBook();
+                Destroy(gameObject);
+            }
         }
     }
+
     void Update() {
         if (trackPlayerId == null) { return; }
-        Vector3 pos = transform.position;
-        pos.x = Mathf.Max(MinX, pos.x);
-        pos.x = Mathf.Min(MaxX, pos.x);
-        pos.x = Mathf.Lerp(pos.x, Target.transform.position.x, TrackSpeed);
-
-        pos.y = Mathf.Max(MinX, pos.y);
-        pos.y = Mathf.Min(MaxX, pos.y);
-        pos.y = Mathf.Lerp(pos.y, Target.transform.position.y, TrackSpeed);
-        pos.z = BookController.Instance.transform.position.z;
-        BookController.Instance.transform.position = pos;
-        pos.z = -0.26f;
-        transform.position = pos;
+        float accel = Mathf.Pow((mActiveTime - ACCELERATE_AFTER_TIME_ALIVE) / ACCELERATE_AFTER_TIME_ALIVE, 2) + 1;
+        mVelocity = (mTarget.transform.position - transform.position).normalized * Speed * accel;
+        transform.position += mVelocity * Time.deltaTime;
+        BookController.Instance.transform.position = transform.position;
     }
 }

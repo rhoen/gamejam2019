@@ -212,40 +212,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VELOCITY_DECAY: 0.9
   RestSprites:
-  - {fileID: 21300000, guid: 0826ac35e3a2c4afa8d6450aad192f9e, type: 3}
-  - {fileID: 21300000, guid: 00dacc9f6d6804fc29293b41eb299bf2, type: 3}
-  - {fileID: 21300000, guid: f60a1117850eb4308bfd66328548beed, type: 3}
-  - {fileID: 21300000, guid: 3e0696134c111467d8462ff01a59abc6, type: 3}
-  - {fileID: 21300000, guid: cd6df72fc98f841458bea5e288b1f63c, type: 3}
-  - {fileID: 21300000, guid: 2591550f2152d4c4fbc0b5d475b3b30d, type: 3}
+  - {fileID: 21300000, guid: d6247143c4a8a4a6ca3bf8131e6153f9, type: 3}
+  - {fileID: 21300000, guid: 6d2a2ee97ddde4ba0b33a0ea603d466b, type: 3}
+  - {fileID: 21300000, guid: f74f66a44cb5c4649bc518c1644f6ef8, type: 3}
+  - {fileID: 21300000, guid: d1dea787e7a6d4a5fad93c12adb34bef, type: 3}
+  - {fileID: 21300000, guid: 50269fe4b5bd346e68675c2b7995b721, type: 3}
+  - {fileID: 21300000, guid: a83b0f9a9a92f4f09bb4c1a13b4c3867, type: 3}
   RestingWithItemSprites:
   - {fileID: 21300000, guid: 86d63472abb2e4cc3be73b0d4e62a6b7, type: 3}
   MoveSprites:
-  - {fileID: 21300000, guid: c1ff6145119c74f439aa6f3b885ef3c1, type: 3}
-  - {fileID: 21300000, guid: 2a8a43a37e740424591c484e49993351, type: 3}
-  - {fileID: 21300000, guid: c9350ce1772f843e89fe835e0d7c2c59, type: 3}
-  - {fileID: 21300000, guid: 7c99e16d66b0c4f66ba5dffcac59b6f9, type: 3}
-  - {fileID: 21300000, guid: b76c6696cdec446769e371232c8ad32b, type: 3}
-  - {fileID: 21300000, guid: 4a18da325644744bd85c167f334328ed, type: 3}
-  - {fileID: 21300000, guid: 196b8c8c475ab40dab5fa672c720ab9f, type: 3}
-  - {fileID: 21300000, guid: 7d37ebcb3afb14a5cbccd6828b53c29d, type: 3}
-  - {fileID: 21300000, guid: 012f30f1ed70a4894b04bb51baaf2f3e, type: 3}
-  - {fileID: 21300000, guid: 2bdad0ccdb07e445db1aad181df7dac0, type: 3}
+  - {fileID: 21300000, guid: 84d013f7abc8542f2afafd9ad553a6ec, type: 3}
+  - {fileID: 21300000, guid: d92df6c236c7c43a580e583ae7461bc7, type: 3}
+  - {fileID: 21300000, guid: c4d8b27b34d574f63afa42dd456f7bf8, type: 3}
+  - {fileID: 21300000, guid: 10d023459110641f982a6cc7c52b0991, type: 3}
+  - {fileID: 21300000, guid: 72b5c35181c4548cfbc28e0d10b9416a, type: 3}
+  - {fileID: 21300000, guid: 3d73f7bfcd073477e8a15e217ebb523f, type: 3}
+  - {fileID: 21300000, guid: 73c919630f8444cecab35e83b785097f, type: 3}
+  - {fileID: 21300000, guid: 3c2acd8a8988c4dc2a20f38de0bd001a, type: 3}
+  - {fileID: 21300000, guid: 95cc415ff8f51495c87b6df44a00caa3, type: 3}
+  - {fileID: 21300000, guid: 1a5aa35ff07f5492faf17a1a947ecc1a, type: 3}
   MovingWithItemSprites:
-  - {fileID: 21300000, guid: b8d6a98a5d8a14f85a491a6df97cdfef, type: 3}
-  - {fileID: 21300000, guid: 349f9242377694062a50007bcd24028e, type: 3}
-  - {fileID: 21300000, guid: 7040274791216487993e94bc35c25967, type: 3}
-  - {fileID: 21300000, guid: 943c30d6a20ba4bc7a02377920bd22a6, type: 3}
-  - {fileID: 21300000, guid: 53074a8cf6a5246ed8c58f0c2111209c, type: 3}
-  - {fileID: 21300000, guid: 6722b041a6e3142bbb6fa6095550ff66, type: 3}
-  - {fileID: 21300000, guid: 25d662948eb3443b4b803a4533f43cd5, type: 3}
-  - {fileID: 21300000, guid: 7b4be78d6e7bb40d5b171f14f16d53bf, type: 3}
-  - {fileID: 21300000, guid: 8406e4386a3e24d51ade62ee26cffb70, type: 3}
-  - {fileID: 21300000, guid: 3e3a9d82466e848a3a59760ce5cf7707, type: 3}
-  MoveFramerate: 0.8
-  RestFramerate: 3.2
+  - {fileID: 21300000, guid: 86d63472abb2e4cc3be73b0d4e62a6b7, type: 3}
+  - {fileID: 21300000, guid: 826812e7ac7a74786a45d1a594f8959d, type: 3}
+  - {fileID: 21300000, guid: a4e3c859a117a42229e23f44451e80aa, type: 3}
+  - {fileID: 21300000, guid: fd1b4ae0821c146cfa2238c1b1466873, type: 3}
+  - {fileID: 21300000, guid: e0099347ebc4043a29aa82267d8fc9ec, type: 3}
+  - {fileID: 21300000, guid: de018fc4d51324b9195cdd98ddeee29d, type: 3}
+  - {fileID: 21300000, guid: 41b843d6180b046afab9fabf9455646b, type: 3}
+  - {fileID: 21300000, guid: 943bf3d761ce04b71920950cd97be879, type: 3}
+  - {fileID: 21300000, guid: 07bc0a6638cf74a0ebe74f3ec6cfd8f5, type: 3}
+  - {fileID: 21300000, guid: 041ce81fd646d4d3495e07ca67a58d7b, type: 3}
+  MoveFramerate: 0.9
+  RestFramerate: 3
   PlayerId: 2
-  MovementSpeed: 0.22
+  MovementSpeed: 0.09
   HeldObjectOffset: 0.19
 --- !u!212 &8753438537809292048
 SpriteRenderer:

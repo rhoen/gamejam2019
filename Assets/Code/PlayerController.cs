@@ -150,7 +150,6 @@ public class PlayerController : MonoBehaviour {
         if (PlayerId == 1) {
             otherPlayerId = 2;
         }
-        Debug.Log("send to player " + otherPlayerId);
         BookController.Instance.SendToPlayer(otherPlayerId);
     }
 

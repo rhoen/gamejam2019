@@ -94,10 +94,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 943bf3d761ce04b71920950cd97be879, type: 3}
   - {fileID: 21300000, guid: 07bc0a6638cf74a0ebe74f3ec6cfd8f5, type: 3}
   - {fileID: 21300000, guid: 041ce81fd646d4d3495e07ca67a58d7b, type: 3}
-  MoveFramerate: 0.8
-  RestFramerate: 3.2
+  MoveFramerate: 0.9
+  RestFramerate: 3
   PlayerId: 1
-  MovementSpeed: 0.22
+  MovementSpeed: 0.09
   HeldObjectOffset: 0.19
 --- !u!212 &519313088003285194
 SpriteRenderer:

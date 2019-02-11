@@ -290,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 2948022602578406944, guid: 7ab412078c5444658b3adbd257d59b6d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2948022602578406944, guid: 7ab412078c5444658b3adbd257d59b6d,
         type: 3}
@@ -331,16 +331,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948022602578406944, guid: 7ab412078c5444658b3adbd257d59b6d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948022602578406944, guid: 7ab412078c5444658b3adbd257d59b6d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2948022602578406947, guid: 7ab412078c5444658b3adbd257d59b6d,
         type: 3}
@@ -3646,7 +3636,7 @@ PrefabInstance:
     - target: {fileID: 3689037624745186483, guid: 82dd8f605d99d49ceac3a101af7ce11b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3689037624745186480, guid: 82dd8f605d99d49ceac3a101af7ce11b,
         type: 3}
@@ -11234,7 +11224,7 @@ PrefabInstance:
     - target: {fileID: 519313088003285195, guid: 28c66f769a7484d86927b836e1e42b89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.75
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 519313088003285195, guid: 28c66f769a7484d86927b836e1e42b89,
         type: 3}
@@ -19312,7 +19302,7 @@ PrefabInstance:
     - target: {fileID: 8753438537809292049, guid: 2d6116640cc4c4bf79fc734f60cf9178,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.57
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8753438537809292049, guid: 2d6116640cc4c4bf79fc734f60cf9178,
         type: 3}
@@ -20642,6 +20632,10 @@ PrefabInstance:
     - target: {fileID: 2071701313, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
       propertyPath: m_Name
       value: AudioManager 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071701313, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071701324, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
       propertyPath: m_LocalPosition.x
