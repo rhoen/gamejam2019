@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 2948022602578406945}
   - component: {fileID: 2948022602578406950}
   - component: {fileID: 2948022602578406947}
+  - component: {fileID: 4602008292360988053}
   m_Layer: 0
   m_Name: Book
   m_TagString: Untagged
@@ -193,4 +194,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9168b3c25038149e2947d53fb40f7035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SendLightPrefab: {fileID: 0}
+  SendLightPrefab: {fileID: 278162662919320067, guid: 25815574364bb4bba9707bf044d5711a,
+    type: 3}
+--- !u!114 &4602008292360988053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948022602578406948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be30640d00d5041178bef48dfa17fcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 2948022602578406944}
+  TargetOffset: 0
