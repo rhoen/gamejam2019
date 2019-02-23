@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 8753438537809292063}
   - component: {fileID: 8753438537809292048}
   - component: {fileID: 8753438537809292060}
-  - component: {fileID: 8753438537809292061}
+  - component: {fileID: 2591256842557059504}
   - component: {fileID: 8753438537809292059}
   m_Layer: 0
   m_Name: Whisp
@@ -212,25 +212,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VELOCITY_DECAY: 0.9
   RestSprites:
-  - {fileID: 21300000, guid: d6247143c4a8a4a6ca3bf8131e6153f9, type: 3}
-  - {fileID: 21300000, guid: 6d2a2ee97ddde4ba0b33a0ea603d466b, type: 3}
-  - {fileID: 21300000, guid: f74f66a44cb5c4649bc518c1644f6ef8, type: 3}
-  - {fileID: 21300000, guid: d1dea787e7a6d4a5fad93c12adb34bef, type: 3}
-  - {fileID: 21300000, guid: 50269fe4b5bd346e68675c2b7995b721, type: 3}
-  - {fileID: 21300000, guid: a83b0f9a9a92f4f09bb4c1a13b4c3867, type: 3}
+  - {fileID: 21300000, guid: 0826ac35e3a2c4afa8d6450aad192f9e, type: 3}
+  - {fileID: 21300000, guid: 00dacc9f6d6804fc29293b41eb299bf2, type: 3}
+  - {fileID: 21300000, guid: f60a1117850eb4308bfd66328548beed, type: 3}
+  - {fileID: 21300000, guid: 3e0696134c111467d8462ff01a59abc6, type: 3}
+  - {fileID: 21300000, guid: cd6df72fc98f841458bea5e288b1f63c, type: 3}
+  - {fileID: 21300000, guid: 2591550f2152d4c4fbc0b5d475b3b30d, type: 3}
   RestingWithItemSprites:
   - {fileID: 21300000, guid: 86d63472abb2e4cc3be73b0d4e62a6b7, type: 3}
   MoveSprites:
-  - {fileID: 21300000, guid: 84d013f7abc8542f2afafd9ad553a6ec, type: 3}
-  - {fileID: 21300000, guid: d92df6c236c7c43a580e583ae7461bc7, type: 3}
-  - {fileID: 21300000, guid: c4d8b27b34d574f63afa42dd456f7bf8, type: 3}
-  - {fileID: 21300000, guid: 10d023459110641f982a6cc7c52b0991, type: 3}
-  - {fileID: 21300000, guid: 72b5c35181c4548cfbc28e0d10b9416a, type: 3}
-  - {fileID: 21300000, guid: 3d73f7bfcd073477e8a15e217ebb523f, type: 3}
-  - {fileID: 21300000, guid: 73c919630f8444cecab35e83b785097f, type: 3}
-  - {fileID: 21300000, guid: 3c2acd8a8988c4dc2a20f38de0bd001a, type: 3}
-  - {fileID: 21300000, guid: 95cc415ff8f51495c87b6df44a00caa3, type: 3}
-  - {fileID: 21300000, guid: 1a5aa35ff07f5492faf17a1a947ecc1a, type: 3}
+  - {fileID: 21300000, guid: c1ff6145119c74f439aa6f3b885ef3c1, type: 3}
+  - {fileID: 21300000, guid: 2a8a43a37e740424591c484e49993351, type: 3}
+  - {fileID: 21300000, guid: c9350ce1772f843e89fe835e0d7c2c59, type: 3}
+  - {fileID: 21300000, guid: 7c99e16d66b0c4f66ba5dffcac59b6f9, type: 3}
+  - {fileID: 21300000, guid: b76c6696cdec446769e371232c8ad32b, type: 3}
+  - {fileID: 21300000, guid: 4a18da325644744bd85c167f334328ed, type: 3}
+  - {fileID: 21300000, guid: 196b8c8c475ab40dab5fa672c720ab9f, type: 3}
+  - {fileID: 21300000, guid: 7d37ebcb3afb14a5cbccd6828b53c29d, type: 3}
+  - {fileID: 21300000, guid: 012f30f1ed70a4894b04bb51baaf2f3e, type: 3}
+  - {fileID: 21300000, guid: 2bdad0ccdb07e445db1aad181df7dac0, type: 3}
   MovingWithItemSprites:
   - {fileID: 21300000, guid: 86d63472abb2e4cc3be73b0d4e62a6b7, type: 3}
   - {fileID: 21300000, guid: 826812e7ac7a74786a45d1a594f8959d, type: 3}
@@ -311,8 +311,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8753438537809292061
-BoxCollider:
+--- !u!136 &2591256842557059504
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -321,8 +321,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32, z: 1}
+  m_Radius: 0.09
+  m_Height: 0.32
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &8753438537809292059
 CharacterController:
@@ -335,8 +336,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.21
-  m_Radius: 0.14
+  m_Height: 0.32
+  m_Radius: 0.09
   m_SlopeLimit: 45
   m_StepOffset: 0.1
   m_SkinWidth: 0.08
