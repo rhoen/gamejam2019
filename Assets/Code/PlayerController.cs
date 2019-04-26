@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour {
         mVelocity *= VELOCITY_DECAY;
     }
 
-    public bool HoldingItem()
+    public bool IsHoldingItem()
     {
         return (mCurrentState == State.MovingWithItem || 
                 mCurrentState == State.RestingWithItem);

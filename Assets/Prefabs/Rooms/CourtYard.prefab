@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2626922828729385932}
   - component: {fileID: 7641394997458095719}
   - component: {fileID: 2802710862851734941}
+  - component: {fileID: 6134107366747508338}
   m_Layer: 0
   m_Name: CourtYard
   m_TagString: Untagged
@@ -115,8 +116,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74de3b960c3e34e22a8e4336f10e7f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  win: 0
-  audioManager: {fileID: 2071701323, guid: 70ffb540518a44e6ab22c5af610a841c, type: 3}
+  mHasWon: 0
+--- !u!54 &6134107366747508338
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046506733438752466}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2259720038580014207
 PrefabInstance:
   m_ObjectHideFlags: 0

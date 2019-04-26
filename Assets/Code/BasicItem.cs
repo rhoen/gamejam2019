@@ -18,7 +18,7 @@ public class BasicItem : PickUpDroppableItem
     public void OnTriggerEnter(Collider other) {
         if (!specialItem || mRevealLight != null) { return; }
         if (other.GetComponent<BookController>() != null) {
-             addLight();
+            //  addLight();
         }
     }
 

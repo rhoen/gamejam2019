@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 40
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 8dcd2ba19c53440fea2452a5041ef20e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.14318138, z: 1}
-  m_Center: {x: 0, y: -0.32259244, z: 0}
+  m_Size: {x: 0.48305038, y: 0.121917784, z: 1}
+  m_Center: {x: 0.0026579648, y: -0.33322424, z: 0}
 --- !u!114 &4911728370037108099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2453403568041113850}
-  TargetOffset: 30
+  TargetOffset: 20
 --- !u!114 &8399758445923552130
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,94 +4,92 @@ using UnityEngine;
 
 public class CourtYardScript : MonoBehaviour
 {
-  
+    private AudioManager mAudioManager;
 
-    // Update is called once per frame
+    void Start() {
+        mAudioManager = AudioManager.Instance;
+    }
+  
     void Update()
     {
-        CheckForWin();
-    }
-
-    public bool win;
-    public AudioManager audioManager;
-    private bool winning;
-
-    // Declare and initialize a new List of GameObjects called currentCollisions.
-    List<GameObject> currentSpecialItems = new List<GameObject>();
-    List<GameObject> players = new List<GameObject>();
-
-    void OnTriggerEnter(Collider col)
-    {
-
-        // Add the GameObject collided with to the list.
-        if (col.gameObject.GetComponent<BasicItem>())
+        if(mSpecialItemsInRoom.Count == 1)
         {
-            if (currentSpecialItems.Contains(col.gameObject)) { return; }
-            if (!col.gameObject.GetComponent<BasicItem>().specialItem) { return; }
-            currentSpecialItems.Add(col.gameObject);
-            col.gameObject.GetComponent<BasicItem>().enabled = false;
-            Debug.Log("You found a special item");
-            DemonManager.Instance.SpawnEnemy();
+            // mAudioManager.FirstItem();
         }
 
-        if (col.gameObject.GetComponent<PlayerController>())
+        if (mSpecialItemsInRoom.Count == 3)
         {
-            players.Add(col.gameObject);
+            // mAudioManager.AlmostWin();
+        }
+        maybeWin();
+    }
+
+    public bool mHasWon;
+    private bool mIsPlayingWinAnimation;
+
+    List<GameObject> mSpecialItemsInRoom = new List<GameObject>();
+    List<GameObject> mPlayersInRoom = new List<GameObject>();
+
+    void OnTriggerEnter(Collider other)
+    {
+        BasicItem item = other.gameObject.GetComponent<BasicItem>();
+        if (item && item.specialItem)
+        {
+            if (!mSpecialItemsInRoom.Contains(other.gameObject)) {
+                mSpecialItemsInRoom.Add(other.gameObject);
+                item.enabled = false;
+                Debug.Log("You found a special item");
+                // DemonManager.Instance.SpawnEnemy();
+            }
+        }
+
+        if (other.gameObject.GetComponent<PlayerController>())
+        {
+            mPlayersInRoom.Add(other.gameObject);
         }
     }
 
-    void CheckForWin()
+        void OnTriggerExit(Collider other)
     {
-        if ((currentSpecialItems.Count == 5 && PlayersPresent()) || win)
+        if (other.gameObject.GetComponent<BasicItem>())
         {
-            if (!winning)
+            mSpecialItemsInRoom.Remove(other.gameObject);
+            Debug.Log("you removed a special item");
+        }
+
+        if (other.gameObject.GetComponent<PlayerController>())
+        {
+            mPlayersInRoom.Remove(other.gameObject);
+        }
+    }
+
+    void maybeWin()
+    {
+        if ((mSpecialItemsInRoom.Count == 5 && areBothPlayersPresent()) || mHasWon)
+        {
+            if (!mIsPlayingWinAnimation)
             {
-                audioManager.Win();
-                winning = true;
+                // mAudioManager.Win();
+                mIsPlayingWinAnimation = true;
                 StartCoroutine(GameObject.Find("Background").GetComponent<EndGameAnimatorScript>().Animate());
                 StartCoroutine(GameObject.Find("DemonForeground").GetComponent<EndGameAnimatorScript>().Animate());
                 StartCoroutine(GameObject.Find("RocksForeground").GetComponent<EndGameAnimatorScript>().Animate());
             }
         }
-
-        if(currentSpecialItems.Count == 1)
-        {
-            audioManager.FirstItem();
-        }
-
-        if (currentSpecialItems.Count == 3)
-        {
-            audioManager.AlmostWin();
-        }
     }
 
-    private bool PlayersPresent()
+    private bool areBothPlayersPresent()
     {
         bool notHolding = true;
-        foreach (GameObject player in players)
+        foreach (GameObject player in mPlayersInRoom)
         {
-            if (player.GetComponent<PlayerController>().HoldingItem())
+            if (player.GetComponent<PlayerController>().IsHoldingItem())
             {
                 notHolding = false;
             }
         }
-        return notHolding && players.Count == 2;
+        return notHolding && mPlayersInRoom.Count == 2;
     }
 
-
-    void OnTriggerExit(Collider col)
-    {
-        // Remove the GameObject collided with from the list.
-        if (col.gameObject.GetComponent<BasicItem>() != null)
-        {
-            currentSpecialItems.Remove(col.gameObject);
-            Debug.Log("you removed a special item");
-        }
-
-        if (col.gameObject.GetComponent<PlayerController>())
-        {
-            players.Remove(col.gameObject);
-        }
-    }
 
 }
