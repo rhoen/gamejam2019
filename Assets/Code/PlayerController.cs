@@ -17,12 +17,12 @@ public class PlayerController : MonoBehaviour {
     public int PlayerId = 1;
     public float MovementSpeed = 5;
 
-    public float HeldObjectOffset = .5f;
+    private float HeldItemOffset = .2f;
     Vector3 mVelocity = Vector3.zero;
     Vector3 mFacingDirection = Vector3.right;
 
     PickUpDroppableItem mClosestItem = null;
-    PickUpDroppableItem mCurrentlyHeldObject = null;
+    PickUpDroppableItem mCurrentlyHeldItem = null;
 
     BookController mBook;
     MementoController mMemento;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
     void Update() {
         if (mVelocity.magnitude < REST_THRESHOLD)
         {
-            if (mCurrentlyHeldObject != null) {
+            if (mCurrentlyHeldItem != null) {
                 TransitionState(State.RestingWithItem);
             } else {
                 TransitionState(State.Resting);
@@ -57,8 +57,8 @@ public class PlayerController : MonoBehaviour {
         }
 
         mCharController.Move(mVelocity * Time.deltaTime);
-        if (mCurrentlyHeldObject != null) {
-            mCurrentlyHeldObject.transform.position = transform.position + (mFacingDirection * HeldObjectOffset);
+        if (mCurrentlyHeldItem != null) {
+            mCurrentlyHeldItem.transform.position = transform.position + (mFacingDirection * HeldItemOffset);
         }
 
         Sprite[] spriteArray = null;
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour {
                 mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
             }
 
-            if (mCurrentlyHeldObject != null) {
+            if (mCurrentlyHeldItem != null) {
                 TransitionState(State.MovingWithItem);
             } else {
                 TransitionState(State.Moving);
@@ -134,18 +134,24 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnAButton() {
-        dropThenPickUpClosestItemIfExists();
+        PickUpDroppableItem previouslyHeldItem = dropCurrentItem();
+        if (mClosestItem != previouslyHeldItem) {
+            pickupClosestItem();
+        }
+        if (previouslyHeldItem is BookController) {
+            sendBookToOtherPlayer();
+        }
     }
 
     public void Die() {
+        // todo
     }
 
     public void OnBButton() {
-        if (!(mCurrentlyHeldObject is BookController)) {
-            return;
-        }
-        mCurrentlyHeldObject.Drop();
-        mCurrentlyHeldObject = null;
+        // nothing yet? maybe not neeeded
+    }
+
+    private void sendBookToOtherPlayer() {
         int otherPlayerId = 1;
         if (PlayerId == 1) {
             otherPlayerId = 2;
@@ -153,22 +159,34 @@ public class PlayerController : MonoBehaviour {
         BookController.Instance.SendToPlayer(otherPlayerId);
     }
 
+    // Called by SendBookController/GameStateManager 
     public void DropThenPickUpBook() {
-        mClosestItem = BookController.Instance;
-        dropThenPickUpClosestItemIfExists();
+        dropCurrentItem();
+        pickupBook();
     }
 
-    private void dropThenPickUpClosestItemIfExists() {
-        PickUpDroppableItem previouslyHeldObject = mCurrentlyHeldObject;
-        if (mCurrentlyHeldObject != null) {
-            mCurrentlyHeldObject.Drop();
-            mCurrentlyHeldObject = null;
+    private void pickupBook() {
+        mClosestItem = BookController.Instance;
+        pickupClosestItem();
+    }
+
+    private void pickupClosestItem() {
+        if (mClosestItem == null) {
+            return;
         }
-        if (mClosestItem != null && mClosestItem != previouslyHeldObject) {
-            mClosestItem.PickUp();
-            mCurrentlyHeldObject = mClosestItem;
-            mClosestItem = null;    
+        mClosestItem.PickUp();
+        mCurrentlyHeldItem = mClosestItem;
+        mClosestItem = null;
+    }
+
+    private PickUpDroppableItem dropCurrentItem() {
+        if (mCurrentlyHeldItem == null) {
+            return null;
         }
+        PickUpDroppableItem previouslyHeldItem = mCurrentlyHeldItem;
+        mCurrentlyHeldItem.Drop();
+        mCurrentlyHeldItem = null;
+        return previouslyHeldItem;
     }
 
     public void OnTriggerEnter(Collider other) {
