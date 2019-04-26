@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour {
 
     private State mCurrentState;
 
+    private Vector3 mOffsetForCurrentlyHeldItem = Vector3.zero;
+
     public enum State
     {
         Resting,
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 
         mCharController.Move(mVelocity * Time.deltaTime);
         if (mCurrentlyHeldItem != null) {
-            mCurrentlyHeldItem.transform.position = transform.position + (mFacingDirection * HeldItemOffset);
+            mCurrentlyHeldItem.transform.position = transform.position + (mFacingDirection * HeldItemOffset) - mOffsetForCurrentlyHeldItem;
         }
 
         Sprite[] spriteArray = null;
@@ -177,6 +179,9 @@ public class PlayerController : MonoBehaviour {
         mClosestItem.PickUp();
         mCurrentlyHeldItem = mClosestItem;
         mClosestItem = null;
+        if (mCurrentlyHeldItem.GetComponent<BoxCollider>() != null) {
+            mOffsetForCurrentlyHeldItem = new Vector3(0, mCurrentlyHeldItem.GetComponent<BoxCollider>().center.y, 0);
+        }
     }
 
     private PickUpDroppableItem dropCurrentItem() {
@@ -186,6 +191,7 @@ public class PlayerController : MonoBehaviour {
         PickUpDroppableItem previouslyHeldItem = mCurrentlyHeldItem;
         mCurrentlyHeldItem.Drop();
         mCurrentlyHeldItem = null;
+        mOffsetForCurrentlyHeldItem = Vector3.zero;
         return previouslyHeldItem;
     }
 
