@@ -12,11 +12,11 @@ public class CourtYardScript : MonoBehaviour
     List<GameObject> mSpecialItemsInRoom = new List<GameObject>();
     List<GameObject> mPlayersInRoom = new List<GameObject>();
 
-    List<GameObject> mPentagramSlots = new List<GameObject>();
+    PentagramSlotController[] mPentagramSlots = null;
 
     void Start() {
         mAudioManager = AudioManager.Instance;
-        mPentagramSlots = getComponentsInChildren<PentagramSlotController>();
+        mPentagramSlots = GetComponentsInChildren<PentagramSlotController>();
     }
   
     void Update()
