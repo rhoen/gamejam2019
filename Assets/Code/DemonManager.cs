@@ -21,6 +21,10 @@ public class DemonManager : MonoBehaviour
     public GameObject[] enemiesToSpawnRandomly;
 
     public void SpawnEnemyAtPosition(Vector3 position) {
+        StartCoroutine(DelayedSpawn(position));
+    }
+
+    private void SpawnEnemyAtPositionHelper(Vector3 position) {
         if (activeEnemies.Count >= enemiesToSpawnRandomly.Length + 1) {
             return;
         }
@@ -31,6 +35,12 @@ public class DemonManager : MonoBehaviour
             enemy = SpawnDemon(enemiesToSpawnRandomly[activeEnemies.Count - 1], position);
         }
         activeEnemies.Add(enemy.GetComponent<DemonController>());
+    }
+
+    IEnumerator DelayedSpawn(Vector3 position)
+    {
+        yield return new WaitForSeconds(2);
+        SpawnEnemyAtPositionHelper(position);
     }
 
     void Shuffle(GameObject[] objects)
