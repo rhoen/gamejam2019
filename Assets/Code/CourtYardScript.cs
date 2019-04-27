@@ -23,12 +23,12 @@ public class CourtYardScript : MonoBehaviour
     {
         if(mSpecialItemsInRoom.Count == 1)
         {
-            // mAudioManager.FirstItem();
+            mAudioManager.FirstItem();
         }
 
         if (mSpecialItemsInRoom.Count == 3)
         {
-            // mAudioManager.AlmostWin();
+            mAudioManager.AlmostWin();
         }
         maybeWin();
     }
@@ -45,8 +45,6 @@ public class CourtYardScript : MonoBehaviour
         {
             if (!mSpecialItemsInRoom.Contains(other.gameObject)) {
                 mSpecialItemsInRoom.Add(other.gameObject);
-                Debug.Log("You found a special item");
-                // DemonManager.Instance.SpawnEnemy();
             }
         }
 
@@ -70,7 +68,7 @@ public class CourtYardScript : MonoBehaviour
         {
             if (!mIsPlayingWinAnimation)
             {
-                // mAudioManager.Win();
+                mAudioManager.Win();
                 mIsPlayingWinAnimation = true;
                 StartCoroutine(GameObject.Find("Background").GetComponent<EndGameAnimatorScript>().Animate());
                 StartCoroutine(GameObject.Find("DemonForeground").GetComponent<EndGameAnimatorScript>().Animate());

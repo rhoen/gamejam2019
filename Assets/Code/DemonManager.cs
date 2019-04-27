@@ -13,16 +13,42 @@ public class DemonManager : MonoBehaviour
         Instance = this;
     }
 
-    public GameObject[] enemies;
-
-    public void SpawnEnemy() {
-        GameObject demon = SpawnDemon(PickRandomEnemy(), Vector3.zero);
-        activeEnemies.Add(demon.GetComponent<DemonController>());
+    void Start() {
+        Shuffle(enemiesToSpawnRandomly);
     }
 
-    GameObject PickRandomEnemy() {
-        return enemies[Random.Range(0,enemies.Length)];
+    public GameObject firstEnemyToSpawn;
+    public GameObject[] enemiesToSpawnRandomly;
+
+    public void SpawnEnemyAtPosition(Vector3 position) {
+        if (activeEnemies.Count >= enemiesToSpawnRandomly.Length + 1) {
+            return;
+        }
+        GameObject enemy = null;
+        if (activeEnemies.Count == 0) {
+            enemy = SpawnDemon(firstEnemyToSpawn, position);
+        } else {
+            enemy = SpawnDemon(enemiesToSpawnRandomly[activeEnemies.Count - 1], position);
+        }
+        activeEnemies.Add(enemy.GetComponent<DemonController>());
     }
+
+    void Shuffle(GameObject[] objects)
+	{
+		// Loops through array
+		for (int i = objects.Length-1; i > 0; i--)
+		{
+			// Randomize a number between 0 and i (so that the range decreases each time)
+			int rnd = Random.Range(0,i);
+			
+			// Save the value of the current i, otherwise it'll overright when we swap the values
+			GameObject temp = objects[i];
+			
+			// Swap the new and old values
+			objects[i] = objects[rnd];
+			objects[rnd] = temp;
+		}
+	}
 
     GameObject SpawnDemon(GameObject demon, Vector3 spawnPosition)
     {

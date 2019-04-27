@@ -5,10 +5,9 @@ public class BasicItem : PickUpDroppableItem
 {
     public bool specialItem;
 
-    private bool mWasRevealed;
+    private bool mWasRevealed = false;
 
     private GameObject lightPrefab;
-
     private GameObject mRevealLight;
 
     void Awake() {
@@ -16,9 +15,13 @@ public class BasicItem : PickUpDroppableItem
     }
 
     public void OnTriggerEnter(Collider other) {
-        if (!specialItem || mRevealLight != null) { return; }
-        if (other.GetComponent<BookController>() != null) {
-            //  addLight();
+        if (other.GetComponent<BookController>()) {
+        bool shouldReveal = specialItem && !mWasRevealed;
+            if (shouldReveal) {
+                mWasRevealed = true;
+                addLight();
+                DemonManager.Instance.SpawnEnemyAtPosition(gameObject.transform.position);
+            }
         }
     }
 
