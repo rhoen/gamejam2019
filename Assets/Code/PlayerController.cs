@@ -109,6 +109,7 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate()
     {
         mVelocity *= VELOCITY_DECAY;
+        Debug.Log(mVelocity);
     }
 
     public bool IsHoldingItem()
@@ -118,13 +119,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnAxisInput(float horizontal, float vertical) {
+        Debug.Log("horizontal " + horizontal + "vertical " + vertical);
         mVelocity += new Vector3(MovementSpeed * horizontal, MovementSpeed * vertical, 0);
         if (Mathf.Abs(horizontal) > .1f || Mathf.Abs(vertical) > .1f) {
-            if (!Mathf.Approximately(horizontal, 0f))
-            {
-                mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
-            }
-
+            mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
             if (mCurrentlyHeldItem != null) {
                 TransitionState(State.MovingWithItem);
             } else {
