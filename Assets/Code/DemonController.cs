@@ -37,9 +37,9 @@ public class DemonController : MonoBehaviour
     Vector3 mVelocity = Vector3.zero;
 
     GameObject closestEnemy;
-
     GameObject player1 = null;
     GameObject player2 = null;
+    
     void Awake() {
          mSprite = GetComponent<SpriteRenderer>();
     }
@@ -113,8 +113,6 @@ public class DemonController : MonoBehaviour
     
         transform.position += mVelocity * Time.deltaTime;
     }
-
-
 
     void MoveAwayFromEnemies()
     {
