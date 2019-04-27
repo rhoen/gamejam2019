@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5683184773517311688}
   - component: {fileID: 5683184773517311691}
   - component: {fileID: 4466541545220045491}
+  - component: {fileID: 3954238590558418188}
   m_Layer: 0
   m_Name: LustDemon
   m_TagString: enemy
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 300
   m_Sprite: {fileID: 21300000, guid: 3faa85e4dfa0d46e68598b97ccee2c93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e24dc4b51db4b739ba5d6bbad5f879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DemonTargetType: 0
   MoveSprites:
   - {fileID: 21300000, guid: 3faa85e4dfa0d46e68598b97ccee2c93, type: 3}
   - {fileID: 21300000, guid: d2822e5c229414a7ab701d6e0dab802a, type: 3}
@@ -122,6 +124,20 @@ CapsuleCollider:
   m_Height: 0.5050038
   m_Direction: 1
   m_Center: {x: 0, y: 0.012717009, z: 0}
+--- !u!114 &3954238590558418188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683184773517311690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be30640d00d5041178bef48dfa17fcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 5683184773517311689}
+  TargetOffset: 300
 --- !u!1 &7005798712370252667
 GameObject:
   m_ObjectHideFlags: 0

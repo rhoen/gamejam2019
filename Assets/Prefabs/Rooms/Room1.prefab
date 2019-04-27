@@ -168,6 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1578460508687383805}
   - component: {fileID: 4220946300108131426}
+  - component: {fileID: 6234463249964087806}
   m_Layer: 0
   m_Name: Environment_DoorFrame-South (3)
   m_TagString: Untagged
@@ -225,7 +226,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 449
   m_Sprite: {fileID: 21300000, guid: 0b82bb6cad40a4ad9a514b03711d7681, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -237,6 +238,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6234463249964087806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464445094737967689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be30640d00d5041178bef48dfa17fcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1578460508687383805}
+  TargetOffset: 500
 --- !u!1 &2046506733438752466
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1950200957591162899}
   - component: {fileID: 4837959588597652724}
+  - component: {fileID: 1982022208607153942}
   m_Layer: 0
   m_Name: Environment_DoorFrame-South (2)
   m_TagString: Untagged
@@ -432,7 +448,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 742
   m_Sprite: {fileID: 21300000, guid: 0b82bb6cad40a4ad9a514b03711d7681, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -444,6 +460,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1982022208607153942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2506984147222000696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be30640d00d5041178bef48dfa17fcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1950200957591162899}
+  TargetOffset: 500
 --- !u!1 &3385341958636473195
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7547218996541968966}
   - component: {fileID: 2543888839431739282}
+  - component: {fileID: 1744449382433149572}
   m_Layer: 0
   m_Name: Environment_Doorframe-West (2)
   m_TagString: Untagged
@@ -590,7 +621,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 599
   m_Sprite: {fileID: 21300000, guid: a737fbfd080be4efa825b020aa3fd514, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -602,6 +633,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1744449382433149572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4716418718961098430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be30640d00d5041178bef48dfa17fcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 7547218996541968966}
+  TargetOffset: 500
 --- !u!1 &6533389623592741830
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2999824551023562656}
   - component: {fileID: 821804410996639958}
+  - component: {fileID: 141120358698901372}
   m_Layer: 0
   m_Name: Asset_Entrance_1 (1)
   m_TagString: Untagged
@@ -748,7 +794,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 1d9c4e04f5d7f4a24b545b355cf07193, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -760,6 +806,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &141120358698901372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6586526255654369993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be30640d00d5041178bef48dfa17fcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 2999824551023562656}
+  TargetOffset: 0
 --- !u!1 &6825468014115420729
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7435055036261816632}
   - component: {fileID: 2921603484305415161}
+  - component: {fileID: 2685457730236096494}
   m_Layer: 0
   m_Name: Environment_Doorframe-West (3)
   m_TagString: Untagged
@@ -827,7 +888,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 599
   m_Sprite: {fileID: 21300000, guid: a737fbfd080be4efa825b020aa3fd514, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -839,6 +900,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2685457730236096494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825468014115420729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be30640d00d5041178bef48dfa17fcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 7435055036261816632}
+  TargetOffset: 500
 --- !u!1 &7789274779450450676
 GameObject:
   m_ObjectHideFlags: 0
