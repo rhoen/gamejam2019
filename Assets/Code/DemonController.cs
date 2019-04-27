@@ -38,7 +38,8 @@ public class DemonController : MonoBehaviour
 
     GameObject closestEnemy;
 
-
+    GameObject player1 = null;
+    GameObject player2 = null;
     void Awake() {
          mSprite = GetComponent<SpriteRenderer>();
     }
@@ -55,7 +56,8 @@ public class DemonController : MonoBehaviour
                 target = BookController.Instance.gameObject;
                 break;
             case TargetType.Player:
-                target = FindClosestPlayer();
+                player1 = GameObject.FindGameObjectWithTag("player1");
+                player2 = GameObject.FindGameObjectWithTag("player2");
                 break;
             case TargetType.Courtyard:
                 target = FindObjectsOfType<CourtYardScript>()[0].gameObject;
@@ -66,8 +68,6 @@ public class DemonController : MonoBehaviour
     }
 
     GameObject FindClosestPlayer() {
-        GameObject player1 = GameObject.FindGameObjectWithTag("player1");
-        GameObject player2 = GameObject.FindGameObjectWithTag("player2");
         float distPlayer1 = (transform.position - player1.transform.position).magnitude;
         float distPlayer2 = (transform.position - player2.transform.position).magnitude;
         if (distPlayer1 > distPlayer2) {
@@ -80,6 +80,9 @@ public class DemonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DemonTargetType == TargetType.Player) {
+            target = FindClosestPlayer();
+        }
         mFrameCounter += MoveFramerate * mVelocity.magnitude * Time.deltaTime;
         if (MoveSprites != null && MoveSprites.Length > 0)
         {

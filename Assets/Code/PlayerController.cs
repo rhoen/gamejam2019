@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour {
     private State mCurrentState;
 
     private Vector3 mOffsetForCurrentlyHeldItem = Vector3.zero;
+    private float mSpriteDiagonalOfHeldItem = 0f;
+
+    public float HeldItemWeightMultiplier = 3;
 
     public enum State
     {
@@ -118,7 +121,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnAxisInput(float horizontal, float vertical) {
-        mVelocity += new Vector3(MovementSpeed * horizontal, MovementSpeed * vertical, 0);
+        float speedWithWeight = MovementSpeed / Mathf.Max(1, mSpriteDiagonalOfHeldItem * HeldItemWeightMultiplier);
+        mVelocity += new Vector3(speedWithWeight * horizontal, speedWithWeight * vertical, 0);
         if (Mathf.Abs(horizontal) > .1f || Mathf.Abs(vertical) > .1f) {
             mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
             if (mCurrentlyHeldItem != null) {
@@ -178,6 +182,10 @@ public class PlayerController : MonoBehaviour {
         if (mCurrentlyHeldItem.GetComponent<BoxCollider>() != null) {
             mOffsetForCurrentlyHeldItem = new Vector3(0, mCurrentlyHeldItem.GetComponent<BoxCollider>().center.y, 0);
         }
+        if (mCurrentlyHeldItem.GetComponent<SpriteRenderer>()) {
+            mSpriteDiagonalOfHeldItem = (mCurrentlyHeldItem.GetComponent<SpriteRenderer>().sprite.bounds.min - mCurrentlyHeldItem.GetComponent<SpriteRenderer>().sprite.bounds.max).magnitude;
+            Debug.Log("mSpriteDiagonal is" + mSpriteDiagonalOfHeldItem);
+        }
     }
 
     private PickUpDroppableItem dropCurrentItem() {
@@ -188,6 +196,7 @@ public class PlayerController : MonoBehaviour {
         mCurrentlyHeldItem.Drop();
         mCurrentlyHeldItem = null;
         mOffsetForCurrentlyHeldItem = Vector3.zero;
+        mSpriteDiagonalOfHeldItem = 0f;
         return previouslyHeldItem;
     }
 
