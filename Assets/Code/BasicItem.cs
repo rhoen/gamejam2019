@@ -8,7 +8,6 @@ public class BasicItem : PickUpDroppableItem
     private bool mWasRevealed = false;
 
     private GameObject lightPrefab;
-    private GameObject mRevealLight;
 
     void Awake() {
         lightPrefab = GameObject.FindWithTag("lightforitem");
@@ -39,9 +38,8 @@ public class BasicItem : PickUpDroppableItem
 
     void addLight() {
         Vector3 lightPos = gameObject.transform.position;
-        lightPos.z -= .13f;
+        lightPos.z -= .1f;
         GameObject lightClone = Instantiate(lightPrefab, lightPos, transform.rotation);
         lightClone.transform.parent = gameObject.transform;
-        mRevealLight = lightClone;
     }
 }
