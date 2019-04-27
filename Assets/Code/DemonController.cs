@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class DemonController : MonoBehaviour
 {
+    public enum TargetType {
+        Book,
+        Player,
+        Courtyard,
+    };
+
+    public TargetType DemonTargetType = TargetType.Book;
     GameObject target;
     GameObject[] enemies;
 
@@ -39,7 +46,35 @@ public class DemonController : MonoBehaviour
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("enemy");
-        target = BookController.Instance.gameObject;
+        ChooseTarget();
+    }
+
+    void ChooseTarget() {
+        switch(DemonTargetType) {
+            case TargetType.Book:
+                target = BookController.Instance.gameObject;
+                break;
+            case TargetType.Player:
+                target = FindClosestPlayer();
+                break;
+            case TargetType.Courtyard:
+                target = FindObjectsOfType<CourtYardScript>()[0].gameObject;
+                break;
+            default:
+                break;
+        }
+    }
+
+    GameObject FindClosestPlayer() {
+        GameObject player1 = GameObject.FindGameObjectWithTag("player1");
+        GameObject player2 = GameObject.FindGameObjectWithTag("player2");
+        float distPlayer1 = (transform.position - player1.transform.position).magnitude;
+        float distPlayer2 = (transform.position - player2.transform.position).magnitude;
+        if (distPlayer1 > distPlayer2) {
+            return player2;
+        } else {
+            return player1;
+        }
     }
 
     // Update is called once per frame
@@ -54,7 +89,7 @@ public class DemonController : MonoBehaviour
 
         elapsedTimeTillNextTargetSeek += Time.deltaTime;
         MoveTowardsTarget();
-        MoveAwayFromEnemies();
+        // MoveAwayFromEnemies();
     }
 
     void MoveTowardsTarget()

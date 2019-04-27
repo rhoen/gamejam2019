@@ -26,33 +26,33 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartGameSnapshot.TransitionTo(0);
+        // StartGameSnapshot.TransitionTo(0);
     }
 
     public void FirstItem()
     {
-        FirstItemSnapshot.TransitionTo(2f);
+        // FirstItemSnapshot.TransitionTo(2f);
     }
 
     public void AlmostWin()
     {
-        AlmostWinSnapShot.TransitionTo(2f);
+        // AlmostWinSnapShot.TransitionTo(2f);
     }
 
     public void Win()
     {
-        EndGameSnapshot.TransitionTo(0.5f);
-        WinStinger.Play();
-        WinSource.PlayDelayed(1.0f);
-        WinLaugh.PlayDelayed(1.0f);
+        // EndGameSnapshot.TransitionTo(0.5f);
+        // WinStinger.Play();
+        // WinSource.PlayDelayed(1.0f);
+        // WinLaugh.PlayDelayed(1.0f);
     }
 
     public void Lose()
     {
-        EndGameSnapshot.TransitionTo(0.5f);
-        LoseSource.Play();
-        LoseImpact.Play();
-        int loseIndex = (int)Random.Range(0, LoseSources.Count);
-        LoseSources[loseIndex].PlayDelayed(1.0f);
+        // EndGameSnapshot.TransitionTo(0.5f);
+        // LoseSource.Play();
+        // LoseImpact.Play();
+        // int loseIndex = (int)Random.Range(0, LoseSources.Count);
+        // LoseSources[loseIndex].PlayDelayed(1.0f);
     }
 }
