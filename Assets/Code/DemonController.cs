@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class DemonController : MonoBehaviour
 {
+    public enum TargetType {
+        Book,
+        Player,
+        Courtyard,
+    };
+
+    public TargetType DemonTargetType = TargetType.Book;
     GameObject target;
     GameObject[] enemies;
 
@@ -30,8 +37,9 @@ public class DemonController : MonoBehaviour
     Vector3 mVelocity = Vector3.zero;
 
     GameObject closestEnemy;
-
-
+    GameObject player1 = null;
+    GameObject player2 = null;
+    
     void Awake() {
          mSprite = GetComponent<SpriteRenderer>();
     }
@@ -39,12 +47,42 @@ public class DemonController : MonoBehaviour
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("enemy");
-        target = BookController.Instance.gameObject;
+        ChooseTarget();
+    }
+
+    void ChooseTarget() {
+        switch(DemonTargetType) {
+            case TargetType.Book:
+                target = BookController.Instance.gameObject;
+                break;
+            case TargetType.Player:
+                player1 = GameObject.FindGameObjectWithTag("player1");
+                player2 = GameObject.FindGameObjectWithTag("player2");
+                break;
+            case TargetType.Courtyard:
+                target = FindObjectsOfType<CourtYardScript>()[0].gameObject;
+                break;
+            default:
+                break;
+        }
+    }
+
+    GameObject FindClosestPlayer() {
+        float distPlayer1 = (transform.position - player1.transform.position).magnitude;
+        float distPlayer2 = (transform.position - player2.transform.position).magnitude;
+        if (distPlayer1 > distPlayer2) {
+            return player2;
+        } else {
+            return player1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (DemonTargetType == TargetType.Player) {
+            target = FindClosestPlayer();
+        }
         mFrameCounter += MoveFramerate * mVelocity.magnitude * Time.deltaTime;
         if (MoveSprites != null && MoveSprites.Length > 0)
         {
@@ -54,7 +92,7 @@ public class DemonController : MonoBehaviour
 
         elapsedTimeTillNextTargetSeek += Time.deltaTime;
         MoveTowardsTarget();
-        MoveAwayFromEnemies();
+        // MoveAwayFromEnemies();
     }
 
     void MoveTowardsTarget()
@@ -75,8 +113,6 @@ public class DemonController : MonoBehaviour
     
         transform.position += mVelocity * Time.deltaTime;
     }
-
-
 
     void MoveAwayFromEnemies()
     {

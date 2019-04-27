@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e24dc4b51db4b739ba5d6bbad5f879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DemonTargetType: 0
   MoveSprites:
   - {fileID: 21300000, guid: 0589b232c42d1498e9cfb7b549cbfb9b, type: 3}
   - {fileID: 21300000, guid: 485b6d9f9f32c4f6199682bd20cf45eb, type: 3}
@@ -173,12 +174,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 95c0b2d50181c457eaa1dbb1624bb550, type: 3}
   - {fileID: 21300000, guid: a03802d1ae97848f48bf5afea9fcb72c, type: 3}
   InitialMoveSpeed: 1.2
-  MoveFramerate: 5
-  Acceleration: 0.99
+  MoveFramerate: 2
+  Acceleration: 0.995
   awayFromEnemiesSpeed: 0.01
   SeekTargetJitterFactor: 0.5
   RandomTargetSeekIntervalMax: 3
-  RandomTargetSeekIntervalMin: 2
+  RandomTargetSeekIntervalMin: 3
 --- !u!136 &2485019972914960568
 CapsuleCollider:
   m_ObjectHideFlags: 0

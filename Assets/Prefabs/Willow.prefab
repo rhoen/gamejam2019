@@ -99,6 +99,7 @@ MonoBehaviour:
   RestFramerate: 3
   PlayerId: 1
   MovementSpeed: 0.09
+  HeldItemWeightMultiplier: 3
 --- !u!212 &519313088003285194
 SpriteRenderer:
   m_ObjectHideFlags: 0

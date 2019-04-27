@@ -39,7 +39,7 @@ public class DemonManager : MonoBehaviour
 
     IEnumerator DelayedSpawn(Vector3 position)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         SpawnEnemyAtPositionHelper(position);
     }
 
