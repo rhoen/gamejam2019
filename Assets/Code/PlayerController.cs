@@ -153,18 +153,18 @@ public class PlayerController : MonoBehaviour {
         // nothing yet? maybe not neeeded
     }
 
+    // Called by SendBookController/GameStateManager 
+    public void DropThenPickUpBook() {
+        dropCurrentItem();
+        pickupBook();
+    }
+
     private void sendBookToOtherPlayer() {
         int otherPlayerId = 1;
         if (PlayerId == 1) {
             otherPlayerId = 2;
         }
         BookController.Instance.SendToPlayer(otherPlayerId);
-    }
-
-    // Called by SendBookController/GameStateManager 
-    public void DropThenPickUpBook() {
-        dropCurrentItem();
-        pickupBook();
     }
 
     private void pickupBook() {

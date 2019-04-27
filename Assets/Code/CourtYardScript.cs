@@ -5,9 +5,18 @@ using UnityEngine;
 public class CourtYardScript : MonoBehaviour
 {
     private AudioManager mAudioManager;
+    
+    public bool mHasWon;
+    private bool mIsPlayingWinAnimation;
+
+    List<GameObject> mSpecialItemsInRoom = new List<GameObject>();
+    List<GameObject> mPlayersInRoom = new List<GameObject>();
+
+    List<GameObject> mPentagramSlots = new List<GameObject>();
 
     void Start() {
         mAudioManager = AudioManager.Instance;
+        mPentagramSlots = getComponentsInChildren<PentagramSlotController>();
     }
   
     void Update()
@@ -24,11 +33,10 @@ public class CourtYardScript : MonoBehaviour
         maybeWin();
     }
 
-    public bool mHasWon;
-    private bool mIsPlayingWinAnimation;
-
-    List<GameObject> mSpecialItemsInRoom = new List<GameObject>();
-    List<GameObject> mPlayersInRoom = new List<GameObject>();
+    void addSpecialItemToPentagram(BasicItem item) {
+        // animate to pentagram slot
+        // disable item, and change pentragram animation color
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -37,7 +45,6 @@ public class CourtYardScript : MonoBehaviour
         {
             if (!mSpecialItemsInRoom.Contains(other.gameObject)) {
                 mSpecialItemsInRoom.Add(other.gameObject);
-                item.enabled = false;
                 Debug.Log("You found a special item");
                 // DemonManager.Instance.SpawnEnemy();
             }
@@ -49,14 +56,8 @@ public class CourtYardScript : MonoBehaviour
         }
     }
 
-        void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<BasicItem>())
-        {
-            mSpecialItemsInRoom.Remove(other.gameObject);
-            Debug.Log("you removed a special item");
-        }
-
         if (other.gameObject.GetComponent<PlayerController>())
         {
             mPlayersInRoom.Remove(other.gameObject);
