@@ -46,6 +46,6 @@ public class PentagramSlotController : MonoBehaviour
                 item.GetComponentInChildren<Light>().color = activatedColor;
             }
         item.GetComponent<BoxCollider>().enabled = false;
-        item.GetComponent<IsometricObject>().TargetOffset = -300;
+        item.GetComponent<IsometricObject>().TargetOffset = -290;
     }
 }
