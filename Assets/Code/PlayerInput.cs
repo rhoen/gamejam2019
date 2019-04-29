@@ -33,7 +33,6 @@ public class PlayerInput : MonoBehaviour {
 		Start_INPUT += pID;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		HandleInput();
 	}
@@ -44,17 +43,12 @@ public class PlayerInput : MonoBehaviour {
 
         controller.OnAxisInput(horizontal, vertical);
 
-		if (Input.GetButtonDown(A_INPUT) || Input.GetButtonDown(B_GAMEPAD)) {
+		if (Input.GetButtonDown(A_INPUT) || Input.GetButtonDown(A_GAMEPAD)) {
+			if (GameStateManager.Instance.DidLose) {
+				GameStateManager.Instance.Restart();
+			}
             controller.OnAButton();
 		}
-
-		if (Input.GetButtonDown(B_INPUT) || Input.GetButtonDown(A_GAMEPAD)) {
-			controller.OnBButton();
-		}
-
-		if (Input.GetButtonDown(Start_INPUT))
-		{
-			// controller.RestartGame();
-		}
 	}
+
 }

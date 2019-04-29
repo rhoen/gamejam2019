@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager Instance { private set; get; }
 
+    public bool DidLose = false;
+    public GameObject GameOverScreenPrefab;
     void Awake() {
         Instance = this;
     }
@@ -44,10 +47,16 @@ public class GameStateManager : MonoBehaviour
 
     public void Lose() {
         AudioManager.Instance.Lose();
+        DidLose = true;
+        Instantiate(GameOverScreenPrefab, Vector3.zero, Quaternion.identity);
     }
 
     public void Win() {
         AudioManager.Instance.Win();
     }
+
+    public void Restart() {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 
 }
