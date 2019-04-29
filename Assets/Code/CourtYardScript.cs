@@ -77,7 +77,7 @@ public class CourtYardScript : MonoBehaviour
         bool notHolding = true;
         foreach (GameObject player in mPlayersInRoom)
         {
-            if (player.GetComponent<PlayerController>().IsHoldingItem())
+            if (player.GetComponent<PlayerController>().CurrentlyHeldItem())
             {
                 notHolding = false;
             }

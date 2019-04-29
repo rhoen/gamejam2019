@@ -114,10 +114,9 @@ public class PlayerController : MonoBehaviour {
         mVelocity *= VELOCITY_DECAY;
     }
 
-    public bool IsHoldingItem()
+    public PickUpDroppableItem CurrentlyHeldItem()
     {
-        return (mCurrentState == State.MovingWithItem || 
-                mCurrentState == State.RestingWithItem);
+        return mCurrentlyHeldItem;
     }
 
     public void OnAxisInput(float horizontal, float vertical) {
@@ -138,7 +137,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnAButton() {
-        PickUpDroppableItem previouslyHeldItem = dropCurrentItem();
+        PickUpDroppableItem previouslyHeldItem = DropCurrentItem();
         if (mClosestItem != previouslyHeldItem) {
             pickupClosestItem();
         }
@@ -157,7 +156,7 @@ public class PlayerController : MonoBehaviour {
 
     // Called by SendBookController/GameStateManager 
     public void DropThenPickUpBook() {
-        dropCurrentItem();
+        DropCurrentItem();
         pickupBook();
     }
 
@@ -189,7 +188,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private PickUpDroppableItem dropCurrentItem() {
+    public PickUpDroppableItem DropCurrentItem() {
         if (mCurrentlyHeldItem == null) {
             return null;
         }

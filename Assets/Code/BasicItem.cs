@@ -26,13 +26,13 @@ public class BasicItem : PickUpDroppableItem
 
     public override void PickUp() {
         if (gameObject.GetComponent<BoxCollider>() != null) { 
-            gameObject.GetComponent<BoxCollider>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().isTrigger = true;
         }
     }
 
     public override void Drop() {
-        if (gameObject.GetComponent<BoxCollider>() != null) { 
-            gameObject.GetComponent<BoxCollider>().enabled = true;
+        if (gameObject.GetComponent<BoxCollider>() != null) {
+            gameObject.GetComponent<BoxCollider>().isTrigger = false;
         }
     }
 
