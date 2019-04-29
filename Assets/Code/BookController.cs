@@ -4,30 +4,55 @@ using UnityEngine;
 
 public class BookController : PickUpDroppableItem {
 
-    public GameObject SendLightPrefab;
     public static BookController Instance { get; private set;}
 
     Light mLight;
+
+    [Range(0,10)]
+    public float MaxIntensity;
+    [Range(0,10)]
+    public float MinIntensity;
+
+    [Range(0,10)]
+    public float MaxRange;
+    [Range(0,10)]
+    public float MinRange;
+
+    private bool isCurrentlyMoving = false;
 
     void Awake() {
         BookController.Instance = this;
         mLight = GetComponentInChildren<Light>();
     }
 
+    void Update() {
+        if (isCurrentlyMoving) {
+            if (mLight.intensity < MaxIntensity) {
+                mLight.intensity *= 1.03f;
+            }
+            if (mLight.range < MaxRange) {
+                mLight.range *= 1.03f;
+            }
+        } else {
+            if (mLight.intensity > MinIntensity) {
+                mLight.intensity *= .94f;
+            }
+            if (mLight.range > MinRange) {
+                mLight.range *= .94f;
+            }
+        }
+    }
+
     public void SendToPlayer(int playerId) {
-        GameObject clone = Instantiate(SendLightPrefab, transform.position, transform.rotation);
-        clone.GetComponent<SendBookController>().SendToPlayer(playerId);
+        GetComponent<SendBookController>().SendToPlayer(playerId);
     }
 
     public override void PickUp() {
-        // lerp
-        mLight.range = 3f;
-        mLight.intensity = 4f;
+        isCurrentlyMoving = false;
     }
 
     public override void Drop() {
-        mLight.range = 1.8f;
-        mLight.intensity = 1.6f;
+        isCurrentlyMoving = true;
     }
     
 }

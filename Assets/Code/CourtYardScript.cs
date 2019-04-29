@@ -9,9 +9,7 @@ public class CourtYardScript : MonoBehaviour
     public bool mHasWon;
     private bool mIsPlayingWinAnimation;
 
-    List<GameObject> mSpecialItemsInRoom = new List<GameObject>();
     List<GameObject> mPlayersInRoom = new List<GameObject>();
-
     PentagramSlotController[] mPentagramSlots = null;
 
     void Start() {
@@ -21,33 +19,30 @@ public class CourtYardScript : MonoBehaviour
   
     void Update()
     {
-        if(mSpecialItemsInRoom.Count == 1)
+        if(NumSpecialItemsInRoom() == 1)
         {
             mAudioManager.FirstItem();
         }
 
-        if (mSpecialItemsInRoom.Count == 3)
+        if (NumSpecialItemsInRoom() == 3)
         {
             mAudioManager.AlmostWin();
         }
         maybeWin();
     }
 
-    void addSpecialItemToPentagram(BasicItem item) {
-        // animate to pentagram slot
-        // disable item, and change pentragram animation color
+    int NumSpecialItemsInRoom() {
+        int count = 0;
+        foreach (PentagramSlotController slot in mPentagramSlots) {
+            if (slot.isFilled) {
+                count++;
+            }
+        }
+        return count;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        BasicItem item = other.gameObject.GetComponent<BasicItem>();
-        if (item && item.specialItem)
-        {
-            if (!mSpecialItemsInRoom.Contains(other.gameObject)) {
-                mSpecialItemsInRoom.Add(other.gameObject);
-            }
-        }
-
         if (other.gameObject.GetComponent<PlayerController>())
         {
             mPlayersInRoom.Add(other.gameObject);
@@ -64,7 +59,7 @@ public class CourtYardScript : MonoBehaviour
 
     void maybeWin()
     {
-        if ((mSpecialItemsInRoom.Count == 5 && areBothPlayersPresent()) || mHasWon)
+        if ((NumSpecialItemsInRoom() == 5 && areBothPlayersPresent()) || mHasWon)
         {
             if (!mIsPlayingWinAnimation)
             {

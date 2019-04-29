@@ -124,7 +124,9 @@ public class PlayerController : MonoBehaviour {
         float speedWithWeight = MovementSpeed / Mathf.Max(1, mSpriteDiagonalOfHeldItem * HeldItemWeightMultiplier);
         mVelocity += new Vector3(speedWithWeight * horizontal, speedWithWeight * vertical, 0);
         if (Mathf.Abs(horizontal) > .1f || Mathf.Abs(vertical) > .1f) {
-            mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
+            if (Mathf.Abs(horizontal) > .1f) {
+                mFacingDirection = horizontal > 0 ? Vector3.right : Vector3.left;
+            }
             if (mCurrentlyHeldItem != null) {
                 TransitionState(State.MovingWithItem);
             } else {
