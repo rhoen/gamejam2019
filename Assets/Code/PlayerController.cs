@@ -184,7 +184,6 @@ public class PlayerController : MonoBehaviour {
         }
         if (mCurrentlyHeldItem.GetComponent<SpriteRenderer>()) {
             mSpriteDiagonalOfHeldItem = (mCurrentlyHeldItem.GetComponent<SpriteRenderer>().sprite.bounds.min - mCurrentlyHeldItem.GetComponent<SpriteRenderer>().sprite.bounds.max).magnitude;
-            Debug.Log("mSpriteDiagonal is" + mSpriteDiagonalOfHeldItem);
         }
     }
 
