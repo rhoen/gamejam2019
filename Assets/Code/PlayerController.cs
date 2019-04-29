@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Die() {
-        GameStateManager.Instance.Lose();
+        
     }
 
     public void OnBButton() {

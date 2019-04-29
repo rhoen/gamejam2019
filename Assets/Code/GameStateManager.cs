@@ -9,6 +9,8 @@ public class GameStateManager : MonoBehaviour
 
     public bool DidLose = false;
     public GameObject GameOverScreenPrefab;
+
+    private Camera GameOverCamera;
     void Awake() {
         Instance = this;
     }
@@ -17,6 +19,7 @@ public class GameStateManager : MonoBehaviour
         int playerId = Random.value < 0.5f ? 1 : 2;
         PlayerController player = GameObject.FindGameObjectWithTag("player" + playerId).GetComponent<PlayerController>();
         player.DropThenPickUpBook();
+        GameOverCamera = GetComponentInChildren<Camera>();
         SelectRandomItems();
     }
 
@@ -46,9 +49,13 @@ public class GameStateManager : MonoBehaviour
 	}
 
     public void Lose() {
+        if (DidLose) {
+            return;
+        }
         AudioManager.Instance.Lose();
+        Instantiate(GameOverScreenPrefab, new Vector3(0, 0, 10), Quaternion.identity);
+        GameOverCamera.enabled = true;
         DidLose = true;
-        Instantiate(GameOverScreenPrefab, Vector3.zero, Quaternion.identity);
     }
 
     public void Win() {
