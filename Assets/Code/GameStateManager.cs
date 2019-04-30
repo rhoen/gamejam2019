@@ -7,8 +7,10 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager Instance { private set; get; }
 
-    public bool DidLose = false;
+    public bool CanRestart = false;
     public GameObject GameOverScreenPrefab;
+    public GameObject WillowWinPrefab;
+    public GameObject WhispWinPrefab;
 
     private Camera GameOverCamera;
     void Awake() {
@@ -49,17 +51,32 @@ public class GameStateManager : MonoBehaviour
 	}
 
     public void Lose() {
-        if (DidLose) {
+        if (CanRestart) {
             return;
         }
         AudioManager.Instance.Lose();
         Instantiate(GameOverScreenPrefab, new Vector3(0, 0, 10), Quaternion.identity);
         GameOverCamera.enabled = true;
-        DidLose = true;
+        CanRestart = true;
     }
 
     public void Win() {
         AudioManager.Instance.Win();
+        Vector3 willowPosition = GameObject.FindGameObjectWithTag("player1").transform.position;
+        Vector3 whispPosition = GameObject.FindGameObjectWithTag("player2").transform.position;
+        GameObject.FindGameObjectWithTag("player1").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.FindGameObjectWithTag("player1").GetComponentInChildren<SpriteRenderer>().enabled = false;
+        GameObject.FindGameObjectWithTag("player2").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.FindGameObjectWithTag("player2").GetComponentInChildren<SpriteRenderer>().enabled = false;
+        BookController.Instance.GetComponent<SpriteRenderer>().enabled = false;
+        Instantiate(WillowWinPrefab, willowPosition, Quaternion.identity);
+        Instantiate(WhispWinPrefab, whispPosition, Quaternion.identity);
+        StartCoroutine(IgnoreInputTillRestartForSeconds(3));
+    }
+
+    IEnumerator IgnoreInputTillRestartForSeconds(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        CanRestart = true;
     }
 
     public void Restart() {

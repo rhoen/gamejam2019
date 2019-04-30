@@ -20,9 +20,12 @@ public class BookController : PickUpDroppableItem {
 
     private bool isCurrentlyMoving = false;
 
+    private IsometricObject IsometricObject = null;
+
     void Awake() {
         BookController.Instance = this;
         mLight = GetComponentInChildren<Light>();
+        IsometricObject = GetComponent<IsometricObject>();
     }
 
     void Update() {
@@ -49,10 +52,12 @@ public class BookController : PickUpDroppableItem {
 
     public override void PickUp() {
         isCurrentlyMoving = false;
+        IsometricObject.TargetOffset = 1;
     }
 
     public override void Drop() {
         isCurrentlyMoving = true;
+        IsometricObject.TargetOffset = 200;
     }
     
 }

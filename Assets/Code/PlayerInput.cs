@@ -44,7 +44,7 @@ public class PlayerInput : MonoBehaviour {
         controller.OnAxisInput(horizontal, vertical);
 
 		if (Input.GetButtonDown(A_INPUT) || Input.GetButtonDown(A_GAMEPAD)) {
-			if (GameStateManager.Instance.DidLose) {
+			if (GameStateManager.Instance.CanRestart) {
 				GameStateManager.Instance.Restart();
 			}
             controller.OnAButton();

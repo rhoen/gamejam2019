@@ -19,7 +19,7 @@ public class CourtYardScript : MonoBehaviour
   
     void Update()
     {
-        if(NumSpecialItemsInRoom() == 1)
+        if (NumSpecialItemsInRoom() == 1)
         {
             mAudioManager.FirstItem();
         }
@@ -63,7 +63,7 @@ public class CourtYardScript : MonoBehaviour
         {
             if (!mIsPlayingWinAnimation)
             {
-                mAudioManager.Win();
+                GameStateManager.Instance.Win();
                 mIsPlayingWinAnimation = true;
                 StartCoroutine(GameObject.Find("Background").GetComponent<EndGameAnimatorScript>().Animate());
                 StartCoroutine(GameObject.Find("DemonForeground").GetComponent<EndGameAnimatorScript>().Animate());

@@ -106,6 +106,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 619b2654c3c6645a4b12a9ff4c4d53b2, type: 3}
   - {fileID: 21300000, guid: 5795e1ed12ce744e6b7c7b3532accda8, type: 3}
   - {fileID: 21300000, guid: 51b49dafbf8b847079480e9f33b87c01, type: 3}
+  playOnStart: 0
+  repeatForever: 0
+  removeOnFinish: 1
+  startDelayMs: 1500
 --- !u!212 &6456278324566697538
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -260,6 +264,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce5c01d6d491943f883c4101889f13c8, type: 3}
   - {fileID: 21300000, guid: 2025e7eb7a1744c42a52f790eca6bbff, type: 3}
   - {fileID: 21300000, guid: 67bb03f84e1934578acfce2748a8c4f6, type: 3}
+  playOnStart: 0
+  repeatForever: 0
+  removeOnFinish: 1
+  startDelayMs: 1500
 --- !u!212 &6089938611187086584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -447,6 +455,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 35c850285c7ed472ca61b790e9b9b5eb, type: 3}
   - {fileID: 21300000, guid: 3636b10b35ab44ed5a5334bf760b23b1, type: 3}
   - {fileID: 21300000, guid: 6682ee03c481c45679069caa5efd90c8, type: 3}
+  playOnStart: 0
+  repeatForever: 0
+  removeOnFinish: 1
+  startDelayMs: 1500
 --- !u!212 &5877466275891615124
 SpriteRenderer:
   m_ObjectHideFlags: 0
