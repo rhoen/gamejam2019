@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     float mFrameCounter;
     public int PlayerId = 1;
-    public float MovementSpeed = 5;
+    private float MovementSpeed = .14f;
 
     private float HeldItemOffset = .2f;
     Vector3 mVelocity = Vector3.zero;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 mOffsetForCurrentlyHeldItem = Vector3.zero;
     private float mSpriteDiagonalOfHeldItem = 0f;
 
-    public float HeldItemWeightMultiplier = 3;
+    public float HeldItemWeightMultiplier = 3.4f;
 
     public enum State
     {
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Die() {
-        
+
     }
 
     public void OnBButton() {
