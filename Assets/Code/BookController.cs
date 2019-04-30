@@ -28,17 +28,17 @@ public class BookController : PickUpDroppableItem {
     void Update() {
         if (isCurrentlyMoving) {
             if (mLight.intensity < MaxIntensity) {
-                mLight.intensity *= 1.03f;
+                mLight.intensity *= 1.02f;
             }
             if (mLight.range < MaxRange) {
-                mLight.range *= 1.03f;
+                mLight.range *= 1.02f;
             }
         } else {
             if (mLight.intensity > MinIntensity) {
-                mLight.intensity *= .94f;
+                mLight.intensity *= .99f;
             }
             if (mLight.range > MinRange) {
-                mLight.range *= .94f;
+                mLight.range *= .99f;
             }
         }
     }

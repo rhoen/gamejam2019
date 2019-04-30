@@ -12,6 +12,7 @@ public class EndGameAnimatorScript : MonoBehaviour
 
     public bool playOnStart = false;
     public bool repeatForever = false;
+    public bool removeOnFinish = true;
     public float startDelayMs = 0f;
 
     private void Awake()
@@ -37,5 +38,8 @@ public class EndGameAnimatorScript : MonoBehaviour
                 yield return new WaitForSeconds(animationWait);
             }
         } while(repeatForever);
+        if (removeOnFinish) {
+            spriteComponent.sprite = null;
+        }
     }
 }
