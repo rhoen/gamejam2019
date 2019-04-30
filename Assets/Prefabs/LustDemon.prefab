@@ -103,7 +103,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 792faea4876f94787847698e56208817, type: 3}
   - {fileID: 21300000, guid: 5bd70d1d305f44465a2116a80e171f95, type: 3}
   - {fileID: 21300000, guid: d0ea0241319e24c93bce2b93e34ac6c3, type: 3}
-  InitialMoveSpeed: 0.9
+  InitialMoveSpeed: 0.75
   MoveFramerate: 5
   Acceleration: 1
   awayFromEnemiesSpeed: 0.01
